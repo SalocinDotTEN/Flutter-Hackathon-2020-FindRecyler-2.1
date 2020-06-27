@@ -30,6 +30,9 @@ dependencies:
   # FLARE
   flare_flutter: ^2.0.3
 
+  # FOR MAP
+  flutter_google_maps: ^3.8.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
