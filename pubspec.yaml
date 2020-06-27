@@ -27,6 +27,9 @@ dependencies:
   # FOR PERMISSIONS
   permission_handler: ^5.0.1+1
 
+  # FLARE
+  flare_flutter: ^2.0.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -35,3 +38,11 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/animations/
+    - assets/images/
+    - assets/fonts/
+    - assets/images/2.0x/
+    - assets/images/3.0x/
