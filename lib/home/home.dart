@@ -1,6 +1,9 @@
 import 'dart:async';
 
+import 'package:findrecycler/app_level/assets/assets.dart';
 import 'package:findrecycler/app_level/constants/constants.dart';
+import 'package:findrecycler/app_level/data/facility_centres.dart';
+import 'package:findrecycler/app_level/services/google_maps.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -19,10 +22,22 @@ class _HomeScreenState extends State<HomeScreen> {
     target: LatLng(1.3521, 103.8198),
     zoom: 11.0,
   );
+  final GoogleMapsServices _mapsService = GoogleMapsServices.instance;
 
   final Set<Marker> _markers = {};
 
   final Completer<GoogleMapController> _controller = Completer();
+  BitmapDescriptor _placeIcon;
+
+  @override
+  void initState() {
+    super.initState();
+    _mapsService
+        .customMarker(AppAssets.place.assetName)
+        .then((icon) => _placeIcon = icon);
+
+    _createData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,5 +61,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+  }
+
+  void _createData() {
+    var _placeMarkers = FacilityMarkers.placeMarkers(_placeIcon);
+
+    setState(() {
+      _markers.addAll(_placeMarkers);
+    });
   }
 }
