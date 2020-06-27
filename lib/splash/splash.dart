@@ -31,7 +31,6 @@ class _SplashScreen extends StatelessWidget {
         DecoratedBox(
           decoration: BoxDecoration(color: Colors.green),
         ),
-        // Image.asset(BraiytAssets.companyLogo.assetName),
       ],
     );
   }
