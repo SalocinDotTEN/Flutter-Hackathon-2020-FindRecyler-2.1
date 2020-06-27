@@ -1,3 +1,4 @@
+import 'package:findrecycler/add_facility/add_facility.dart';
 import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:findrecycler/home/home.dart';
 
@@ -12,6 +13,12 @@ class Router {
       case ApplevelRoutes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => HomeScreen(),
+          settings: settings,
+        );
+
+      case ApplevelRoutes.addFacilityScreen:
+        return MaterialPageRoute(
+          builder: (_) => AddFacilityScreen(),
           settings: settings,
         );
 

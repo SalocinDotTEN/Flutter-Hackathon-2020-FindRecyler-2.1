@@ -4,5 +4,5 @@ import '../extensions/color_extension.dart';
 class AppColors {
   AppColors._();
 
-  static Color backgroundGrey = HexColor.fromHex('#dddddd');
+  static Color backgroundGrey = HexColor.fromHex('#dfdfdf').withOpacity(0.8);
 }
