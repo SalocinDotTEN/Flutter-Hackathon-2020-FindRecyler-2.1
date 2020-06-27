@@ -1,47 +1,38 @@
-import 'package:flutter/material.dart';
+import 'package:findrecycler/app_level/routes/routes.dart';
+import 'package:findrecycler/home/home.dart';
+import 'package:findrecycler/locator.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
-void main() {
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // INIT DEP INJECTION..
+  setupLocator();
+
+  // SETUP ORIENTATION
+  if (!kIsWeb) {
+    await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
+
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  //
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(''),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-          ],
-        ),
-      ),
+      home: HomeScreen(),
+      onGenerateRoute: Router.generateRoute,
     );
   }
 }
