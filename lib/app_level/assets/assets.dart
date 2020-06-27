@@ -1,7 +1,7 @@
-// import 'package:flutter/material.dart' show AssetImage;
+import 'package:flutter/material.dart' show AssetImage;
 
 class AppAssets {
   AppAssets._();
 
-  // static const AssetImage handWave = AssetImage('assets/gifs/hand_wave.gif');
+  static const AssetImage place = AssetImage('assets/images/place.png');
 }
