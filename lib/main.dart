@@ -1,3 +1,4 @@
+import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:findrecycler/app_level/routes/routes.dart';
 import 'package:findrecycler/home/home.dart';
 import 'package:findrecycler/locator.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: AppLevelConstants.fontMuli,
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

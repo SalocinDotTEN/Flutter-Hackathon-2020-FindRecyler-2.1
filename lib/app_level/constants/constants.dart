@@ -1,6 +1,7 @@
 class AppLevelConstants {
   AppLevelConstants._();
 
+  static const String fontMuli = 'Muli';
   static const String appName = 'Find Recycler';
 }
 

@@ -46,3 +46,8 @@ flutter:
     - assets/fonts/
     - assets/images/2.0x/
     - assets/images/3.0x/
+
+  fonts:
+    - family: Muli
+      fonts:
+        - asset: assets/fonts/Muli-Regular.ttf
