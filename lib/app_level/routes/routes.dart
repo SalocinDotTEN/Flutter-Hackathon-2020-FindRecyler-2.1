@@ -29,7 +29,7 @@ class Router {
           builder: (_) => DiscardItemScreen(data: settings.arguments),
         );
 
-       case ApplevelRoutes.facilityInformationScreen:
+      case ApplevelRoutes.facilityInformationScreen:
         return MaterialPageRoute(
           builder: (_) => FacilityInformationScreen(
             facilityModel: settings.arguments,
