@@ -14,20 +14,17 @@ class Rewards extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            ListView.builder(
+            ListView(
               shrinkWrap: true,
               padding: EdgeInsets.only(bottom: 40, top: 10),
-              itemCount: 1,
               scrollDirection: Axis.vertical,
-              itemBuilder: (context, index) => _buildListItem(index),
+              children: <Widget>[
+                CouponSwiper(),
+              ],
             ),
           ],
         ),
       ),
     );
-  }
-
-  Widget _buildListItem(int index) {
-    return CouponSwiper();
   }
 }
