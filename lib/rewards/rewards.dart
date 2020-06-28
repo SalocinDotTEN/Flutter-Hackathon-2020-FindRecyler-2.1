@@ -1,5 +1,6 @@
 import 'package:findrecycler/rewards/widgets/coupon.dart';
 import 'package:findrecycler/rewards/widgets/points.dart';
+import 'package:findrecycler/rewards/widgets/pub_card.dart';
 import 'package:flutter/material.dart';
 
 class Rewards extends StatelessWidget {
@@ -13,17 +14,13 @@ class Rewards extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            ListView(
-              shrinkWrap: true,
-              padding: EdgeInsets.only(bottom: 40),
-              scrollDirection: Axis.vertical,
-              children: <Widget>[
-                Points(),
-                CouponSwiper(),
-              ],
-            ),
+            Points(),
+            CouponSwiper(),
+            const SizedBox(height: 16.0),
+            PUBCard(),
+            PUBCard(),
+            PUBCard(),
           ],
         ),
       ),
