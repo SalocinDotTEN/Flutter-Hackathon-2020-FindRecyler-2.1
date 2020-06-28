@@ -138,7 +138,10 @@ class AddFacilityButton extends StatelessWidget {
         onPressed: () {
           print('>>> 👹👹👹👹👹👹👹 CENTER DATA ${model.toString()}');
           // _dbService.addFacility(FacilityModel(
-          //   facilityImageUrl: 'ss',
+          //   facilityImageUrl: model.imgUrl,
+          //   facilityName: model.name,
+          //   facilityAddress: model.address,
+          //   facilityType: model.type,
           // ));
         },
         icon: Icon(Icons.add_circle),
