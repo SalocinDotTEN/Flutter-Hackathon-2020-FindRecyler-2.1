@@ -43,7 +43,7 @@ class AddFacilityScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const ImageCard(),
+                  ImageCard(model: formModel),
                   const SizedBox(height: 8),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -136,7 +136,6 @@ class AddFacilityButton extends StatelessWidget {
         textTheme: ButtonTextTheme.primary,
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
         onPressed: () {
-          print('>>> 👹👹👹👹👹👹👹 CENTER DATA ${model.toString()}');
           // _dbService.addFacility(FacilityModel(
           //   facilityImageUrl: model.imgUrl,
           //   facilityName: model.name,

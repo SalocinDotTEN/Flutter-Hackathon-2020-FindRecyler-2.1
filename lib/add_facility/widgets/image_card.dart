@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:findrecycler/app_level/models/freezed/facility.dart';
 import 'package:findrecycler/app_level/services/image_picker.dart';
 import 'package:findrecycler/app_level/services/storage_service.dart';
 import 'package:findrecycler/app_level/styles/colors.dart';
@@ -11,7 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:pedantic/pedantic.dart' show unawaited;
 
 class ImageCard extends StatefulWidget {
-  const ImageCard({Key key}) : super(key: key);
+  const ImageCard({Key key, this.model}) : super(key: key);
+
+  final CenterFormData model;
 
   @override
   _ImageCardState createState() => _ImageCardState();
@@ -33,7 +36,8 @@ class _ImageCardState extends State<ImageCard> {
       onTap: () async {
         _imgFile = await ImagePickerService.getImage();
         setState(() {});
-        unawaited(_cloudService.uploadImage(fileToUpload: _imgFile));
+        widget.model.imgUrl = _imgFile.path;
+        // unawaited(_cloudService.uploadImage(fileToUpload: _imgFile));
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
