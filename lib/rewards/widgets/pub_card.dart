@@ -1,5 +1,4 @@
 import 'package:findrecycler/app_level/assets/assets.dart';
-import 'package:findrecycler/app_level/styles/colors.dart';
 import 'package:findrecycler/app_level/utilities/screen_size.dart';
 import 'package:findrecycler/rewards/widgets/rounded_shadow.dart';
 
@@ -9,9 +8,11 @@ class PUBCard extends StatelessWidget {
   const PUBCard({
     Key key,
     this.billName = 'Bill Name',
+    @required this.assetName,
   }) : super(key: key);
 
   final String billName;
+  final String assetName;
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +32,8 @@ class PUBCard extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 Image.asset(
-                  AppAssets.kfc.assetName,
-                  fit: BoxFit.contain,
-                  width: 50.0,
+                  assetName,
+                  fit: BoxFit.cover,
                 ),
                 const SizedBox(width: 16),
                 //Label
@@ -43,14 +43,6 @@ class PUBCard extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText2,
                   ),
                 ),
-                const Icon(
-                  Icons.star,
-                  size: 20,
-                ),
-                const SizedBox(width: 4),
-                Text(
-                  'sdsdsds',
-                )
               ],
             ),
           ),

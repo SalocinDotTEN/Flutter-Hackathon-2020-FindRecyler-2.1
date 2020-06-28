@@ -13,4 +13,8 @@ class AppAssets {
 
   static const mcd2 = AssetImage('assets/images/mcd_2.png');
   static const mcd3 = AssetImage('assets/images/mcd_3.png');
+
+  static const elex = AssetImage('assets/images/elex.png');
+  static const mobile = AssetImage('assets/images/mobile.png');
+  static const water = AssetImage('assets/images/water.png');
 }
