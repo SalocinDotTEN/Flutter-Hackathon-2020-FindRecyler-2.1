@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
           return const _SplashScreen();
         }
 
-        return const HomeScreen();
+        return HomeScreen();
       },
     );
   }

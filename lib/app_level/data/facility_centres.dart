@@ -5,6 +5,14 @@ class FacilityCentresData {
   FacilityCentresData._();
 
   static List<MapModelData> get centerData => FacilityCentersData.initialData();
+
+  static List<MapModelData> filterData(String query) {
+    List<MapModelData> data = FacilityCentresData.centerData
+        .where((i) =>
+            (i.placeTitle.contains(query) || i.placeSnippet.contains(query)))
+        .toList();
+    return data.take(5).toList();
+  }
 }
 
 class FacilityMarkers {
