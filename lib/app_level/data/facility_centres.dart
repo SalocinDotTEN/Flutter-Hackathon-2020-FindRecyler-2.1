@@ -9,7 +9,7 @@ class FacilityCentresData {
   static List<MapModelData> filterData(String query) {
     var data = FacilityCentresData.centerData
         .where((i) =>
-            (i.placeTitle.contains(query) || i.placeSnippet.contains(query)))
+            (i.placeTitle.toLowerCase().contains(query.toLowerCase()) || i.placeSnippet.toLowerCase().contains(query.toLowerCase())))
         .toList();
     return data.take(5).toList();
   }
