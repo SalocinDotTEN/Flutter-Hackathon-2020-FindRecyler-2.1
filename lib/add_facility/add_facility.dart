@@ -3,11 +3,9 @@ import 'package:findrecycler/add_facility/widgets/image_card.dart';
 import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:findrecycler/app_level/models/dropdown_data.dart';
 import 'package:findrecycler/app_level/models/freezed/facility.dart';
-import 'package:findrecycler/app_level/services/firestore/db_service.dart';
 import 'package:findrecycler/app_level/styles/colors.dart';
 import 'package:findrecycler/app_level/utilities/screen_size.dart';
 import 'package:findrecycler/app_level/widgets/dropdown.dart';
-import 'package:findrecycler/locator.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

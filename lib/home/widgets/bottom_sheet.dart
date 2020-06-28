@@ -1,5 +1,5 @@
 import 'package:findrecycler/app_level/constants/constants.dart';
-import 'package:findrecycler/app_level/models/freezed/facility.dart';
+
 import 'package:flutter/material.dart';
 
 class FacilityBottomSheet extends StatelessWidget {
