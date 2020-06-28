@@ -33,7 +33,7 @@ class _ImageCardState extends State<ImageCard> {
       onTap: () async {
         _imgFile = await ImagePickerService.getImage();
         setState(() {});
-        // unawaited(_cloudService.uploadImage(fileToUpload: _imgFile));
+        unawaited(_cloudService.uploadImage(fileToUpload: _imgFile));
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),

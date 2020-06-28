@@ -51,6 +51,8 @@ class CloudStorageService {
 
   // ------------------------------ INTERNALS ---------------------------------------------
 
-  final _storageRef = FirebaseStorage.instance.ref();
+  final _storageRef = FirebaseStorage(
+    storageBucket: 'gs://find-recycler.appspot.com/',
+  ).ref();
   final _bucketName = 'items';
 }
