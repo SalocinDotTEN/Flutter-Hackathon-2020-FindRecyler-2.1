@@ -1,4 +1,5 @@
 import 'package:findrecycler/app_level/constants/constants.dart';
+import 'package:findrecycler/app_level/models/freezed/facility.dart';
 import 'package:flutter/material.dart';
 
 class FacilityBottomSheet extends StatelessWidget {
@@ -35,10 +36,7 @@ class FacilityBottomSheet extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             color: Colors.green,
-            onPressed: () => Navigator.pushNamed(
-              context,
-              ApplevelRoutes.facilityInformationScreen,
-            ),
+            onPressed: () {},
             child: Text(
               'Discard Item',
               style: TextStyle(color: Colors.white),
