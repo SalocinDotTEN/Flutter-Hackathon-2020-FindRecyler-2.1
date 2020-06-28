@@ -60,11 +60,7 @@ class AddFacilityScreen extends StatelessWidget {
                 ),
               ),
             ),
-
-            SizedBox(
-              height: 8,
-            ),
-
+            const SizedBox(height: 8),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               decoration: BoxDecoration(
@@ -82,9 +78,7 @@ class AddFacilityScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: 8,
-            ),
+            const SizedBox(height: 8),
 
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -99,10 +93,7 @@ class AddFacilityScreen extends StatelessWidget {
                 ),
               ),
             ),
-
-            SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
           ],
         ),
       ),
