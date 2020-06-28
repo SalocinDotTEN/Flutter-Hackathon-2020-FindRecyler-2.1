@@ -1,23 +1,27 @@
 import 'package:findrecycler/add_facility/widgets/image_card.dart';
 import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:findrecycler/app_level/models/dropdown_data.dart';
+import 'package:findrecycler/app_level/models/freezed/facility.dart';
+import 'package:findrecycler/app_level/services/firestore/db_service.dart';
 import 'package:findrecycler/app_level/styles/colors.dart';
 import 'package:findrecycler/app_level/utilities/screen_size.dart';
 import 'package:findrecycler/app_level/widgets/dropdown.dart';
+import 'package:findrecycler/locator.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class AddFacilityScreen extends StatelessWidget {
-  //
+  const AddFacilityScreen({Key key}) : super(key: key);
+
+  static final _dbService = locator<FirestoreService>();
 
   @override
   Widget build(BuildContext context) {
     //
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Add Facility'),
-      ),
+      appBar: AppBar(title: const Text('Add Facility')),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.fromLTRB(16.0, 0, 16, 20),
         child: RaisedButton.icon(
@@ -25,7 +29,11 @@ class AddFacilityScreen extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           textTheme: ButtonTextTheme.primary,
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-          onPressed: () {},
+          onPressed: () {
+            _dbService.addFacility(FacilityModel(
+              facilityImageUrl: 'ss',
+            ));
+          },
           icon: Icon(Icons.add_circle),
           label: Text(
             'Add This Facility'.toUpperCase(),
