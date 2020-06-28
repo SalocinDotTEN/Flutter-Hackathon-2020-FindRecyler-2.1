@@ -28,7 +28,7 @@ class CouponsData {
         couponName: '\$5 Off',
       ),
       CouponData(
-        assetName: AppAssets.kfc2.assetName,
+        assetName: AppAssets.mcd2.assetName,
         couponDesc: 'Valid till end October 2020',
         couponName: '22% Off',
       ),
