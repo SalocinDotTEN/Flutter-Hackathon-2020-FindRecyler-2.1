@@ -5,6 +5,7 @@ import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:findrecycler/app_level/data/facility_centres.dart';
 import 'package:findrecycler/app_level/models/map_model.dart';
 import 'package:findrecycler/app_level/services/google_maps.dart';
+import 'package:findrecycler/home/widgets/bottom_sheet.dart';
 
 import 'package:flutter/material.dart';
 
@@ -70,21 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
     //
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLevelConstants.appName),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => Navigator.pushNamed(
-          context,
-          ApplevelRoutes.addFacilityScreen,
-        ),
-        label: Row(
-          children: <Widget>[
-            Icon(Icons.add),
-            Text('Add Facility'),
-          ],
-        ),
-      ),
+      appBar: AppBar(title: Text(AppLevelConstants.appName)),
       body: SafeArea(
         child: Stack(
           children: <Widget>[
@@ -127,42 +114,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-            // Positioned(
-            //   bottom: 5,
-            //   left: 5,
-            //   right: 5,
-            //   child: Column(
-            //     crossAxisAlignment: CrossAxisAlignment.stretch,
-            //     children: <Widget>[
-            //       FlatButton(
-            //         padding: EdgeInsets.symmetric(vertical: 15),
-            //         shape: RoundedRectangleBorder(
-            //             borderRadius: BorderRadius.circular(10)),
-            //         color: Colors.green,
-            //         onPressed: () {},
-            //         child: Text(
-            //           "Add a Facility!",
-            //           style: TextStyle(color: Colors.white),
-            //         ),
-            //       ),
-            //       SizedBox(height: 10),
-            //       FlatButton(
-            //         padding: EdgeInsets.symmetric(vertical: 15),
-            //         shape: RoundedRectangleBorder(
-            //             borderRadius: BorderRadius.circular(10)),
-            //         color: Colors.green,
-            //         onPressed: () {},
-            //         child: Text(
-            //           "Discard Item",
-            //           style: TextStyle(color: Colors.white),
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
           ],
         ),
       ),
+      bottomSheet: FacilityBottomSheet(),
     );
   }
 
