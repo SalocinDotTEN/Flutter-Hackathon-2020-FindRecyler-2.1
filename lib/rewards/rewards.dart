@@ -11,6 +11,7 @@ class Rewards extends StatelessWidget {
     //
     return Scaffold(
       appBar: AppBar(title: Text('Rewards')),
+      backgroundColor: Colors.white.withOpacity(0.9),
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -18,6 +19,7 @@ class Rewards extends StatelessWidget {
             Points(),
             CouponSwiper(),
             const SizedBox(height: 16.0),
+            PUBCard(),
             PUBCard(),
             PUBCard(),
             PUBCard(),
