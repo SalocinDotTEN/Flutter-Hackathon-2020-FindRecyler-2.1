@@ -1,3 +1,4 @@
+import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class PopUpMenu extends StatelessWidget {
@@ -7,6 +8,10 @@ class PopUpMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void _select(String option) {
+      Navigator.of(context).pushNamed(ApplevelRoutes.rewards);
+    }
+
     return PopupMenuButton<String>(
       elevation: 3.2,
       initialValue: options.first,
@@ -23,9 +28,5 @@ class PopUpMenu extends StatelessWidget {
         }).toList();
       },
     );
-  }
-
-  void _select(String option) {
-    print('Option $option');
   }
 }
