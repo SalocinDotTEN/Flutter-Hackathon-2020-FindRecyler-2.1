@@ -7,7 +7,7 @@ class FacilityCentresData {
   static List<MapModelData> get centerData => FacilityCentersData.initialData();
 
   static List<MapModelData> filterData(String query) {
-    List<MapModelData> data = FacilityCentresData.centerData
+    var data = FacilityCentresData.centerData
         .where((i) =>
             (i.placeTitle.contains(query) || i.placeSnippet.contains(query)))
         .toList();
