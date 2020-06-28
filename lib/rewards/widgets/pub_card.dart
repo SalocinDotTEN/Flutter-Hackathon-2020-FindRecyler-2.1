@@ -1,4 +1,3 @@
-import 'package:findrecycler/app_level/assets/assets.dart';
 import 'package:findrecycler/app_level/utilities/screen_size.dart';
 import 'package:findrecycler/rewards/widgets/rounded_shadow.dart';
 
