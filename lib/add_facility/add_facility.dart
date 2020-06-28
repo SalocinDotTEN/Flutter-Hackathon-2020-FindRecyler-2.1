@@ -1,11 +1,17 @@
 import 'package:findrecycler/add_facility/widgets/image_card.dart';
+import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:findrecycler/app_level/styles/colors.dart';
 import 'package:findrecycler/app_level/utilities/screen_size.dart';
+import 'package:findrecycler/app_level/widgets/dropdown.dart';
 import 'package:flutter/material.dart';
 
 class AddFacilityScreen extends StatelessWidget {
+  //
+
   @override
   Widget build(BuildContext context) {
+    //
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Facility'),
@@ -86,11 +92,19 @@ class AddFacilityScreen extends StatelessWidget {
                 color: AppColors.backgroundGrey,
                 borderRadius: BorderRadius.circular(5),
               ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Facility Type',
-                  border: InputBorder.none,
-                ),
+              // child: TextField(
+              //   decoration: InputDecoration(
+              //     hintText: 'Facility Type',
+              //     border: InputBorder.none,
+              //   ),
+              // ),
+              child: AppDropDown(
+                hintText: AppLevelConstants.dpDwnDefault,
+                items: AppLevelConstants.dpDwnOptions,
+                onChange: (val) {
+                  // _model.changeDropDownValue(val);
+                },
+                value: AppLevelConstants.dpDwnOptions.first,
               ),
             ),
             const SizedBox(height: 20),
