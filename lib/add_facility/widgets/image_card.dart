@@ -1,10 +1,14 @@
 import 'dart:io';
 
 import 'package:findrecycler/app_level/services/image_picker.dart';
+import 'package:findrecycler/app_level/services/storage_service.dart';
 import 'package:findrecycler/app_level/styles/colors.dart';
 import 'package:findrecycler/app_level/utilities/screen_size.dart';
+import 'package:findrecycler/locator.dart';
 
 import 'package:flutter/material.dart';
+
+import 'package:pedantic/pedantic.dart' show unawaited;
 
 class ImageCard extends StatefulWidget {
   const ImageCard({Key key}) : super(key: key);
@@ -15,6 +19,8 @@ class ImageCard extends StatefulWidget {
 
 class _ImageCardState extends State<ImageCard> {
   File _imgFile;
+
+  final _cloudService = locator<CloudStorageService>();
 
   @override
   void initState() {
@@ -27,6 +33,7 @@ class _ImageCardState extends State<ImageCard> {
       onTap: () async {
         _imgFile = await ImagePickerService.getImage();
         setState(() {});
+        // unawaited(_cloudService.uploadImage(fileToUpload: _imgFile));
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
@@ -50,7 +57,11 @@ class _ImageCardState extends State<ImageCard> {
                     ),
                   ],
                 )
-              : Expanded(child: Image.file(_imgFile, fit: BoxFit.fill)),
+              : SizedBox(
+                  child: Image.file(_imgFile, fit: BoxFit.fill),
+                  width: double.maxFinite,
+                  height: double.maxFinite,
+                ),
         ),
       ),
     );
