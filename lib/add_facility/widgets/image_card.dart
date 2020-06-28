@@ -9,8 +9,6 @@ import 'package:findrecycler/locator.dart';
 
 import 'package:flutter/material.dart';
 
-import 'package:pedantic/pedantic.dart' show unawaited;
-
 class ImageCard extends StatefulWidget {
   const ImageCard({Key key, this.model}) : super(key: key);
 
@@ -36,8 +34,9 @@ class _ImageCardState extends State<ImageCard> {
       onTap: () async {
         _imgFile = await ImagePickerService.getImage();
         setState(() {});
-        widget.model.imgUrl = _imgFile.path;
-        // unawaited(_cloudService.uploadImage(fileToUpload: _imgFile));
+
+        final _resp = await _cloudService.uploadImage(fileToUpload: _imgFile);
+        widget.model.imgUrl = _resp.imageUrl;
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
