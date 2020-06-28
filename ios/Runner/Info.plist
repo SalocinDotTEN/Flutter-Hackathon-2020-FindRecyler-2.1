@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+
+	<!-- GOOGLE MAPS -->
+    <key>io.flutter.embedded_views_preview</key>
+    <string>YES</string>	
+
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -26,6 +31,14 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+
+	<!-- FOR CAMERA -->
+	<key>NSCameraUsageDescription</key>
+	<string>Can we use the camera please?</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Can we use the mic please?</string>
+	<!-- END FOR CAMERA -->
+
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
