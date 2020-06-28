@@ -8,7 +8,14 @@ class Rewards extends StatelessWidget {
     //
     return Scaffold(
       appBar: AppBar(title: Text('Rewards')),
-      body: Placeholder(),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Placeholder(),
+          ],
+        ),
+      ),
     );
   }
 }
