@@ -69,6 +69,18 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text(AppLevelConstants.appName),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => Navigator.pushNamed(
+          context,
+          ApplevelRoutes.addFacilityScreen,
+        ),
+        label: Row(
+          children: <Widget>[
+            Icon(Icons.add),
+            Text('Add Facility'),
+          ],
+        ),
+      ),
       body: SafeArea(
         child: Stack(
           children: <Widget>[
