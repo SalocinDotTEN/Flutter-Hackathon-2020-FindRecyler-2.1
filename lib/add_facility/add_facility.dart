@@ -1,9 +1,11 @@
 import 'package:findrecycler/add_facility/widgets/image_card.dart';
 import 'package:findrecycler/app_level/constants/constants.dart';
+import 'package:findrecycler/app_level/models/dropdown_data.dart';
 import 'package:findrecycler/app_level/styles/colors.dart';
 import 'package:findrecycler/app_level/utilities/screen_size.dart';
 import 'package:findrecycler/app_level/widgets/dropdown.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AddFacilityScreen extends StatelessWidget {
   //
@@ -86,25 +88,28 @@ class AddFacilityScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8),
 
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              decoration: BoxDecoration(
-                color: AppColors.backgroundGrey,
-                borderRadius: BorderRadius.circular(5),
-              ),
-              // child: TextField(
-              //   decoration: InputDecoration(
-              //     hintText: 'Facility Type',
-              //     border: InputBorder.none,
-              //   ),
-              // ),
-              child: AppDropDown(
-                hintText: AppLevelConstants.dpDwnDefault,
-                items: AppLevelConstants.dpDwnOptions,
-                onChange: (val) {
-                  // _model.changeDropDownValue(val);
+            ChangeNotifierProvider<DropdownValue>(
+              create: (_) => DropdownValue(),
+              child: Consumer<DropdownValue>(
+                builder: (_, value, child) {
+                  final _model = value;
+
+                  return Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    decoration: BoxDecoration(
+                      color: AppColors.backgroundGrey,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: AppDropDown(
+                      hintText: AppLevelConstants.dpDwnDefault,
+                      items: AppLevelConstants.dpDwnOptions,
+                      onChange: (val) {
+                        _model.changeDropDownValue(val);
+                      },
+                      value: _model.currentValue,
+                    ),
+                  );
                 },
-                value: AppLevelConstants.dpDwnOptions.first,
               ),
             ),
             const SizedBox(height: 20),
