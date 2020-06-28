@@ -14,8 +14,6 @@ import 'package:provider/provider.dart';
 class AddFacilityScreen extends StatelessWidget {
   const AddFacilityScreen({Key key}) : super(key: key);
 
-  static final _dbService = locator<FirestoreService>();
-
   @override
   Widget build(BuildContext context) {
     //
@@ -23,19 +21,19 @@ class AddFacilityScreen extends StatelessWidget {
     return ChangeNotifierProvider<CenterFormData>(
       create: (_) => CenterFormData(),
       child: Consumer<CenterFormData>(
-        builder: (_, value, child) {
+        builder: (_, formModel, child) {
           //
           return Scaffold(
             appBar: AppBar(title: const Text('Add Facility')),
-            bottomNavigationBar: AddFacilityButton(model: value),
+            bottomNavigationBar: AddFacilityButton(model: formModel),
             body: Padding(
               padding: const EdgeInsets.all(16.0),
               child: ListView(
                 shrinkWrap: true,
                 children: <Widget>[
                   //PHOTO TITLE
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(
                       'Facility Photo',
                       style: TextStyle(
@@ -58,9 +56,7 @@ class AddFacilityScreen extends StatelessWidget {
                         hintText: 'Name of Facility',
                         border: InputBorder.none,
                       ),
-                      onChanged: (val) {
-                        value.name = val;
-                      },
+                      onChanged: (val) => formModel.name = val,
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -80,6 +76,7 @@ class AddFacilityScreen extends StatelessWidget {
                         alignLabelWithHint: false,
                         border: InputBorder.none,
                       ),
+                      onChanged: (val) => formModel.address = val,
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -101,6 +98,7 @@ class AddFacilityScreen extends StatelessWidget {
                             items: AppLevelConstants.dpDwnOptions,
                             onChange: (val) {
                               _model.changeDropDownValue(val);
+                              formModel.type = val;
                             },
                             value: _model.currentValue,
                           ),
@@ -124,6 +122,8 @@ class AddFacilityButton extends StatelessWidget {
 
   final CenterFormData model;
 
+  static final _dbService = locator<FirestoreService>();
+
   @override
   Widget build(BuildContext context) {
     //
@@ -136,9 +136,7 @@ class AddFacilityButton extends StatelessWidget {
         textTheme: ButtonTextTheme.primary,
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
         onPressed: () {
-          final _centerData = model;
-
-          print('>>> 👹👹👹👹👹👹👹 CENTER DATA ${_centerData.toString()}');
+          print('>>> 👹👹👹👹👹👹👹 CENTER DATA ${model.toString()}');
           // _dbService.addFacility(FacilityModel(
           //   facilityImageUrl: 'ss',
           // ));
