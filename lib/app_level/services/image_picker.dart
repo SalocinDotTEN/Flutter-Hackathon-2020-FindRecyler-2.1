@@ -10,7 +10,12 @@ class ImagePickerService {
   static Future<File> getImage() async {
     File _image;
 
-    final pickedFile = await _picker.getImage(source: ImageSource.camera);
+    final pickedFile = await _picker.getImage(
+      source: ImageSource.camera,
+      imageQuality: 60,
+      maxHeight: 700,
+      maxWidth: 700,
+    );
     _image = File(pickedFile.path);
     return _image;
   }
