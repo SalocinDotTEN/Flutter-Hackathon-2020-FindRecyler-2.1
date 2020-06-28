@@ -49,7 +49,9 @@ class AddFacilityScreen extends StatelessWidget {
 
             //IMAGE CARD
             GestureDetector(
-              onTap: () => ImagePickerService.picker,
+              onTap: () async {
+                final _img = await ImagePickerService.getImage();
+              },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Container(
