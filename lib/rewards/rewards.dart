@@ -1,3 +1,5 @@
+import 'package:findrecycler/app_level/assets/assets.dart';
+import 'package:findrecycler/rewards/widgets/coupon.dart';
 import 'package:findrecycler/rewards/widgets/rotator.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +11,6 @@ class Rewards extends StatelessWidget {
     //
     return Scaffold(
       appBar: AppBar(title: Text('Rewards')),
-      backgroundColor: Colors.greenAccent,
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -29,18 +30,6 @@ class Rewards extends StatelessWidget {
   }
 
   Widget _buildListItem(int index) {
-    return Container(
-      margin: EdgeInsets.symmetric(
-        vertical: 20.0,
-        horizontal: 18.0,
-      ),
-      child: Card(
-        child: ListTile(
-          leading: FlutterLogo(),
-          title: Text('One-line with both widgets'),
-          trailing: Icon(Icons.more_vert),
-        ),
-      ),
-    );
+    return CouponSwiper(assetName: AppAssets.starbucks.assetName);
   }
 }

@@ -4,4 +4,5 @@ class AppAssets {
   AppAssets._();
 
   static const AssetImage place = AssetImage('assets/images/place.png');
+  static const starbucks = AssetImage('assets/images/coupon_starbucks.png');
 }
