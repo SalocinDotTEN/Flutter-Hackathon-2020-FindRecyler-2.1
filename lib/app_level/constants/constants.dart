@@ -11,6 +11,8 @@ class AppLevelConstants {
   static const String dpDwnOptTwo = 'Clothes';
   static const String dpDwnOptThree = 'Aluminium';
 
+  static const String goToHome = 'Go to home';
+
   static const List<String> dpDwnOptions = [
     dpDwnOptOne,
     dpDwnOptTwo,
