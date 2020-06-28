@@ -55,7 +55,7 @@ class FacilityCentersData {
       MapModelData(
         position: LatLng(-7.236338, 112.746228),
         placeTitle: 'UD Logam Indah',
-        placeSnippet: 'Alumunium And Old Newspaper',
+        placeSnippet: 'Alumunium And Paper',
       ),
       MapModelData(
         position: LatLng(-7.252165, 112.648465),
@@ -66,6 +66,21 @@ class FacilityCentersData {
         position: LatLng(-7.315115, 112.708980),
         placeTitle: 'Etik Istianah Recycle',
         placeSnippet: 'Kitchen Waste Recycle',
+      ),
+      MapModelData(
+        position: LatLng(-7.362289, 112.771876),
+        placeTitle: 'Bhakti Pertiwi Recycle',
+        placeSnippet: 'Plastic Waste Recycle',
+      ),
+      MapModelData(
+        position: LatLng(-7.297183, 112.780109),
+        placeTitle: 'Raja Koran Recycle',
+        placeSnippet: 'Paper Recycle',
+      ),
+      MapModelData(
+        position: LatLng(-7.311483, 112.790581),
+        placeTitle: 'Wonorejo Compost Center',
+        placeSnippet: 'Convert Waste to Compost',
       ),
     ];
 
