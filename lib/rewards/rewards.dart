@@ -1,3 +1,4 @@
+import 'package:findrecycler/rewards/widgets/rotator.dart';
 import 'package:flutter/material.dart';
 
 class Rewards extends StatelessWidget {
@@ -11,8 +12,12 @@ class Rewards extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Placeholder(),
+            Rotator(
+              buttonText: '150',
+              onTap: () => Navigator.of(context).pop(),
+            ),
           ],
         ),
       ),
