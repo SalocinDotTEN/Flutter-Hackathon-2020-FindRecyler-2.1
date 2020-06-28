@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
               markers: _markers,
             ),
             Padding(
-              padding: EdgeInsets.all(5),
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 18),
               child: TypeAheadField(
                 textFieldConfiguration: TextFieldConfiguration(
                   controller: searchController,
@@ -111,6 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(10.0),
                       borderSide: BorderSide(width: 0.0, color: Colors.white),
                     ),
+                    hintText: AppLevelConstants.placeHint,
                   ),
                 ),
                 suggestionsCallback: (pattern) async {
