@@ -30,6 +30,6 @@ class Rewards extends StatelessWidget {
   }
 
   Widget _buildListItem(int index) {
-    return CouponSwiper(assetName: AppAssets.starbucks.assetName);
+    return CouponSwiper();
   }
 }
