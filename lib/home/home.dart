@@ -5,10 +5,13 @@ import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:findrecycler/app_level/data/facility_centres.dart';
 import 'package:findrecycler/app_level/models/map_model.dart';
 import 'package:findrecycler/app_level/services/google_maps.dart';
+import 'package:findrecycler/home/widgets/bottom_sheet.dart';
 
 import 'package:flutter/material.dart';
+
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:pedantic/pedantic.dart' show unawaited;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -19,7 +22,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   GoogleMapController mapController;
-  TextEditingController searchController = new TextEditingController();
+  TextEditingController searchController = TextEditingController();
 
   static final CameraPosition _kSingapore = CameraPosition(
     target: LatLng(1.3521, 103.8198),
@@ -44,21 +47,23 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    searchController?.dispose();
     super.dispose();
-    searchController.dispose();
   }
 
   Future<void> onSuggestionSelect(MapModelData suggestion) async {
     searchController.text = suggestion.placeTitle;
-    
-    final CameraPosition selectedMarker = CameraPosition(
-      target: LatLng(suggestion.position.latitude, suggestion.position.longitude),
+
+    final selectedMarker = CameraPosition(
+      target:
+          LatLng(suggestion.position.latitude, suggestion.position.longitude),
       zoom: 15,
     );
 
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(selectedMarker));
+    final controller = await _controller.future;
+    unawaited(
+      controller.animateCamera(CameraUpdate.newCameraPosition(selectedMarker)),
+    );
   }
 
   @override
@@ -66,9 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
     //
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLevelConstants.appName),
-      ),
+      appBar: AppBar(title: Text(AppLevelConstants.appName)),
       body: SafeArea(
         child: Stack(
           children: <Widget>[
@@ -81,70 +84,40 @@ class _HomeScreenState extends State<HomeScreen> {
               markers: _markers,
             ),
             Padding(
-              padding: EdgeInsets.all(5),
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 18),
               child: TypeAheadField(
-              textFieldConfiguration: TextFieldConfiguration(
-                controller: searchController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-                  suffixIcon: Icon(Icons.search),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                    borderSide:BorderSide(width: 0.0, color: Colors.white),
+                textFieldConfiguration: TextFieldConfiguration(
+                  controller: searchController,
+                  decoration: InputDecoration(
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                    suffixIcon: Icon(Icons.search),
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(width: 0.0, color: Colors.white),
+                    ),
+                    hintText: AppLevelConstants.placeHint,
                   ),
                 ),
-              ),
-              suggestionsCallback: (pattern) async {
-                return await FacilityCentresData.filterData(pattern);
-              },
-              itemBuilder: (context, MapModelData suggestion) {
-                return ListTile(
-                    title: Text(suggestion.placeTitle),
-                    subtitle: Text(suggestion.placeSnippet));
-              },
-              onSuggestionSelected: (MapModelData suggestion) {
-                onSuggestionSelect(suggestion);
-              },
-            ),
-            ),
-            Positioned(
-              bottom: 5,
-              left: 5,
-              right: 5,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  FlatButton(
-                    padding: EdgeInsets.symmetric(vertical: 15),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    color: Colors.green,
-                    onPressed: () {},
-                    child: Text(
-                      "Add a Facility!",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  FlatButton(
-                    padding: EdgeInsets.symmetric(vertical: 15),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    color: Colors.green,
-                    onPressed: () {},
-                    child: Text(
-                      "Discard Item",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ],
+                suggestionsCallback: (pattern) async {
+                  return await FacilityCentresData.filterData(pattern);
+                },
+                itemBuilder: (context, MapModelData suggestion) {
+                  return ListTile(
+                      title: Text(suggestion.placeTitle),
+                      subtitle: Text(suggestion.placeSnippet));
+                },
+                onSuggestionSelected: (MapModelData suggestion) {
+                  onSuggestionSelect(suggestion);
+                },
               ),
             ),
           ],
         ),
       ),
+      bottomSheet: FacilityBottomSheet(),
     );
   }
 

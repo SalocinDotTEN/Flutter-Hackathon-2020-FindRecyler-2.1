@@ -34,6 +34,9 @@ dependencies:
   # CAMERA
   camera: ^0.5.7+3
 
+  #IMAGE PICKER
+  image_picker: ^0.6.7+2
+
   # GOOGLE MAPS
   google_maps_flutter: ^0.5.28+1
   
