@@ -7,9 +7,9 @@ class AppLevelConstants {
   static const String placeHint = 'e.g 808 French Rd';
 
   static const String dpDwnDefault = 'Please select';
-  static const String dpDwnOptOne = 'Paper';
-  static const String dpDwnOptTwo = 'Clothes';
-  static const String dpDwnOptThree = 'Aluminium';
+  static const String dpDwnOptOne = 'Recycling Bin';
+  static const String dpDwnOptTwo = 'Collection Centre';
+  static const String dpDwnOptThree = 'Charity Bin';
 
   static const String goToHome = 'Go to home';
 

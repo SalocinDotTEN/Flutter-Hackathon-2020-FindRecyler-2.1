@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_init_to_null
 import 'dart:async';
 
 import 'package:findrecycler/app_level/assets/assets.dart';
@@ -69,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void onTapMarker(MapModelData select) {
-    setState((){
+    setState(() {
       selectedMarker = select;
     });
   }
@@ -89,7 +90,9 @@ class _HomeScreenState extends State<HomeScreen> {
               onMapCreated: (controller) {
                 _controller.complete(controller);
               },
-              onTap: (LatLng data){onTapMarker(null);},
+              onTap: (LatLng data) {
+                onTapMarker(null);
+              },
               markers: _markers,
             ),
             Padding(
@@ -126,7 +129,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomSheet: FacilityBottomSheet(parent: this,),
+      bottomSheet: FacilityBottomSheet(
+        parent: this,
+      ),
     );
   }
 

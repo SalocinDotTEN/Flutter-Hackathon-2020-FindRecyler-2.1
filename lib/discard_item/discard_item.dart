@@ -1,11 +1,9 @@
 import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:findrecycler/app_level/models/map_model.dart';
-import 'package:findrecycler/app_level/services/image_picker.dart';
 import 'package:findrecycler/discard_item/widget/image_card.dart';
 import 'package:flutter/material.dart';
 
 import '../app_level/styles/colors.dart';
-import '../app_level/utilities/screen_size.dart';
 
 class DiscardItemScreen extends StatefulWidget {
   final MapModelData data;
