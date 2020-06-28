@@ -3,6 +3,7 @@ import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:findrecycler/discard_item/discard_item.dart';
 import 'package:findrecycler/facility_information/facility_information.dart';
 import 'package:findrecycler/home/home.dart';
+import 'package:findrecycler/rewards/rewards.dart';
 
 import 'package:flutter/material.dart';
 
@@ -34,6 +35,12 @@ class Router {
           builder: (_) => FacilityInformationScreen(
             facilityModel: settings.arguments,
           ),
+          settings: settings,
+        );
+
+      case ApplevelRoutes.rewards:
+        return MaterialPageRoute(
+          builder: (_) => const Rewards(),
           settings: settings,
         );
 
