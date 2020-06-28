@@ -35,7 +35,10 @@ class FacilityBottomSheet extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             color: Colors.green,
-            onPressed: () {},
+            onPressed: () => Navigator.pushNamed(
+              context,
+              ApplevelRoutes.facilityInformationScreen,
+            ),
             child: Text(
               'Discard Item',
               style: TextStyle(color: Colors.white),
