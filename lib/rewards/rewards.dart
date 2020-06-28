@@ -1,6 +1,4 @@
-import 'package:findrecycler/app_level/assets/assets.dart';
 import 'package:findrecycler/rewards/widgets/coupon.dart';
-import 'package:findrecycler/rewards/widgets/rotator.dart';
 import 'package:flutter/material.dart';
 
 class Rewards extends StatelessWidget {

@@ -18,17 +18,22 @@ class CouponsData {
   static List<CouponData> initialData() {
     final _data = [
       CouponData(
-        assetName: AppAssets.starbucks.assetName,
+        assetName: AppAssets.starbucks2.assetName,
         couponDesc: 'Valid till end July 2020',
         couponName: '5 Off',
       ),
       CouponData(
-        assetName: AppAssets.starbucks.assetName,
+        assetName: AppAssets.starbucks3.assetName,
         couponDesc: 'Valid till end July 2020',
         couponName: '5 Off',
       ),
       CouponData(
-        assetName: AppAssets.starbucks.assetName,
+        assetName: AppAssets.mcd.assetName,
+        couponDesc: 'Valid till end July 2020',
+        couponName: '5 Off',
+      ),
+      CouponData(
+        assetName: AppAssets.kfc.assetName,
         couponDesc: 'Valid till end July 2020',
         couponName: '5 Off',
       ),

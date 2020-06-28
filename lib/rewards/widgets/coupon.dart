@@ -50,6 +50,8 @@ class _CouponSwiperState extends State<CouponSwiper> {
               },
               child: CouponCard(
                 assetName: _data[index].assetName,
+                couponName: _data[index].couponName,
+                couponDesc: _data[index].couponDesc,
               ),
             ),
           );

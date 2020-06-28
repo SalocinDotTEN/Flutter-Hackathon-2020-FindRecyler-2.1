@@ -1,3 +1,4 @@
+import 'package:findrecycler/app_level/extensions/textstyle_extension.dart';
 import 'package:flutter/material.dart';
 
 class CouponCard extends StatelessWidget {
@@ -30,18 +31,19 @@ class CouponCard extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32, 0, 16, 16),
+                padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
                       couponName,
-                      style: Theme.of(context).textTheme.headline5,
+                      style: Theme.of(context).textTheme.headline5.bold,
                     ),
                     Text(
                       couponDesc,
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.bodyText2,
                     ),
                   ],
                 ),
