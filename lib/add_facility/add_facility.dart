@@ -1,16 +1,27 @@
-import 'package:findrecycler/app_level/services/image_picker.dart';
-import 'package:flutter/material.dart';
+import 'package:findrecycler/add_facility/widgets/image_card.dart';
+import 'package:findrecycler/app_level/constants/constants.dart';
+import 'package:findrecycler/app_level/models/dropdown_data.dart';
+import 'package:findrecycler/app_level/models/freezed/facility.dart';
+import 'package:findrecycler/app_level/services/firestore/db_service.dart';
+import 'package:findrecycler/app_level/styles/colors.dart';
+import 'package:findrecycler/app_level/utilities/screen_size.dart';
+import 'package:findrecycler/app_level/widgets/dropdown.dart';
+import 'package:findrecycler/locator.dart';
 
-import '../app_level/styles/colors.dart';
-import '../app_level/utilities/screen_size.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AddFacilityScreen extends StatelessWidget {
+  const AddFacilityScreen({Key key}) : super(key: key);
+
+  static final _dbService = locator<FirestoreService>();
+
   @override
   Widget build(BuildContext context) {
+    //
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Add Facility'),
-      ),
+      appBar: AppBar(title: const Text('Add Facility')),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.fromLTRB(16.0, 0, 16, 20),
         child: RaisedButton.icon(
@@ -18,7 +29,11 @@ class AddFacilityScreen extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           textTheme: ButtonTextTheme.primary,
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-          onPressed: () {},
+          onPressed: () {
+            _dbService.addFacility(FacilityModel(
+              facilityImageUrl: 'ss',
+            ));
+          },
           icon: Icon(Icons.add_circle),
           label: Text(
             'Add This Facility'.toUpperCase(),
@@ -46,40 +61,8 @@ class AddFacilityScreen extends StatelessWidget {
                 ),
               ),
             ),
-
-            //IMAGE CARD
-            GestureDetector(
-              onTap: () => ImagePickerService.picker,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Container(
-                  color: AppColors.backgroundGrey,
-                  alignment: Alignment.center,
-                  height:
-                      ScreenQueries.instance.customHeightPercent(context, 0.25),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(
-                        Icons.add_photo_alternate,
-                        size: ScreenQueries.instance
-                            .customHeightPercent(context, 0.15),
-                        color: Colors.grey,
-                      ),
-                      Text(
-                        'Tap to select or take a picture',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-
-            SizedBox(
-              height: 8,
-            ),
-
+            const ImageCard(),
+            const SizedBox(height: 8),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               decoration: BoxDecoration(
@@ -93,11 +76,7 @@ class AddFacilityScreen extends StatelessWidget {
                 ),
               ),
             ),
-
-            SizedBox(
-              height: 8,
-            ),
-
+            const SizedBox(height: 8),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               decoration: BoxDecoration(
@@ -115,27 +94,33 @@ class AddFacilityScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: 8,
-            ),
+            const SizedBox(height: 8),
 
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              decoration: BoxDecoration(
-                color: AppColors.backgroundGrey,
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Facility Type',
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
+            ChangeNotifierProvider<DropdownValue>(
+              create: (_) => DropdownValue(),
+              child: Consumer<DropdownValue>(
+                builder: (_, value, child) {
+                  final _model = value;
 
-            SizedBox(
-              height: 20,
+                  return Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    decoration: BoxDecoration(
+                      color: AppColors.backgroundGrey,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: AppDropDown(
+                      hintText: AppLevelConstants.dpDwnDefault,
+                      items: AppLevelConstants.dpDwnOptions,
+                      onChange: (val) {
+                        _model.changeDropDownValue(val);
+                      },
+                      value: _model.currentValue,
+                    ),
+                  );
+                },
+              ),
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),
