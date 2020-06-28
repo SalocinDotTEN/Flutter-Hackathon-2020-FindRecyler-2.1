@@ -18,7 +18,7 @@ class FacilityCentresData {
 class FacilityMarkers {
   FacilityMarkers._();
 
-  static List<Marker> placeMarkers(BitmapDescriptor placeIcon) {
+  static List<Marker> placeMarkers(BitmapDescriptor placeIcon, parent) {
     var _markers = <Marker>[];
     var _centresPlaces = FacilityCentresData.centerData.length;
 
@@ -32,6 +32,7 @@ class FacilityMarkers {
           ),
           markerId: MarkerId(i.toString()),
           position: FacilityCentresData.centerData[i].position,
+          onTap: (){parent.onTapMarker(FacilityCentresData.centerData[i]);}
         ),
       );
     }
