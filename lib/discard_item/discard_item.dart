@@ -36,7 +36,7 @@ class _DiscardItemScreen extends State<DiscardItemScreen> {
           onPressed: () => _showMyDialog(),
           icon: Icon(Icons.delete_forever),
           label: Text(
-            'Discard Facility'.toUpperCase(),
+            'Confirm Discard Facility'.toUpperCase(),
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
