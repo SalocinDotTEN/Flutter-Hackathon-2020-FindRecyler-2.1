@@ -21,9 +21,7 @@ class _DiscardItemScreen extends State<DiscardItemScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Discard Facility'),
-      ),
+      appBar: AppBar(title: Text('Discard Item')),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.fromLTRB(16.0, 0, 16, 20),
         child: RaisedButton.icon(
@@ -34,7 +32,7 @@ class _DiscardItemScreen extends State<DiscardItemScreen> {
           onPressed: () => _showMyDialog(),
           icon: Icon(Icons.delete_forever),
           label: Text(
-            'Confirm Discard Facility'.toUpperCase(),
+            'Confirm Discard Item'.toUpperCase(),
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
@@ -106,9 +104,9 @@ class _DiscardItemScreen extends State<DiscardItemScreen> {
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text('100 points awarded!'),
-                Text(
-                    'Thank you for confirming discard of the item here. Tap OK to go back to the home screen.'),
+                Text('100 points awarded !!'),
+                const SizedBox(height: 8.0),
+                Text('Thank you for discarding item.'),
               ],
             ),
           ),
