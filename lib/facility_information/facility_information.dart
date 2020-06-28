@@ -61,13 +61,17 @@ class FacilityInformationScreen extends StatelessWidget {
           SizedBox(
             height: 8,
           ),
-          InfoBox(title: 'Facility Name', value: facilityModel.facilityName),
+          InfoBox(
+            title: 'Facility Name',
+            value: facilityModel.facilityName ?? '',
+          ),
           InfoBox(
             title: 'Facility Address',
-            value: facilityModel.facilityAddress,
+            value: facilityModel.facilityAddress ?? '',
             multipleLine: true,
           ),
-          InfoBox(title: 'Facility Type', value: facilityModel.facilityType),
+          InfoBox(
+              title: 'Facility Type', value: facilityModel.facilityType ?? ''),
         ],
       ),
     );

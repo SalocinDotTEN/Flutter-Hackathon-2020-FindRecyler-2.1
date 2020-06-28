@@ -3,15 +3,19 @@ import 'dart:async';
 import 'package:findrecycler/app_level/assets/assets.dart';
 import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:findrecycler/app_level/data/facility_centres.dart';
+import 'package:findrecycler/app_level/models/freezed/facility.dart';
 import 'package:findrecycler/app_level/models/map_model.dart';
 import 'package:findrecycler/app_level/services/google_maps.dart';
-import 'package:findrecycler/home/widgets/bottom_sheet.dart';
+import 'package:findrecycler/app_level/styles/colors.dart';
+import 'package:findrecycler/home/widgets/fab_button.dart';
+import 'package:findrecycler/home/widgets/map_pin_window.dart';
 
 import 'package:flutter/material.dart';
 
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:pedantic/pedantic.dart' show unawaited;
+import 'package:flutter/services.dart' show rootBundle;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -34,10 +38,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final Completer<GoogleMapController> _controller = Completer();
   BitmapDescriptor _placeIcon;
+  String _mapStyle;
+  bool _isPinWindowInfoVisible = false;
+  FacilityModel _currentPinWindow;
 
   @override
   void initState() {
     super.initState();
+
+    rootBundle.loadString('assets/map_style.txt').then((string) {
+      _mapStyle = string;
+    });
+
     _mapsService
         .customMarker(AppAssets.place.assetName)
         .then((icon) => _placeIcon = icon);
@@ -71,18 +83,80 @@ class _HomeScreenState extends State<HomeScreen> {
     //
 
     return Scaffold(
-      appBar: AppBar(title: Text(AppLevelConstants.appName)),
+      // appBar: AppBar(title: Text(AppLevelConstants.appName)),
+
       body: SafeArea(
         child: Stack(
           children: <Widget>[
             GoogleMap(
               initialCameraPosition: _kSingapore,
               zoomControlsEnabled: false,
+              buildingsEnabled: false,
+              onTap: (v) {
+                setState(() {
+                  _isPinWindowInfoVisible = false;
+                });
+              },
               onMapCreated: (controller) {
                 _controller.complete(controller);
+                mapController = controller;
+                mapController.setMapStyle(_mapStyle);
+
+                setState(() {
+                  _markers.add(
+                    Marker(
+                      markerId: MarkerId('1'),
+                      position: LatLng(1.3521, 103.4598),
+                      icon: _placeIcon,
+                      onTap: () => _showPinWindow(
+                        FacilityModel(
+                            facilityName: 'GREEN IT RECYCLING CENTER PVT. LTD.',
+                            facilityAddress: '5 Ganeshprasad IInd Floor, 890',
+                            facilityImageUrl:
+                                'https://www.thebetterindia.com/wp-content/uploads/2016/09/waste_f-1.jpg',
+                            facilityType: 'Paper'),
+                      ),
+                    ),
+                  );
+                  _markers.add(
+                    Marker(
+                      markerId: MarkerId('2'),
+                      position: LatLng(2.3611, 103.8193),
+                      icon: _placeIcon,
+                      onTap: () => _showPinWindow(
+                        FacilityModel(
+                            facilityName: 'Hitech Recycling (INDIA) Pvt. Ltd',
+                            facilityAddress:
+                                'Hitech Recycling (INDIA) Pvt. Ltd Pune 441209',
+                            facilityImageUrl:
+                                'https://lh3.googleusercontent.com/proxy/ntw6Fcwm6kShPY1w1r3CBO6uUUizUKaPXVf55fcZvvwGWHvxcqUPNCuZvB50GP3snuCPFThQ1wTh5582Tyif_Q69oFUff61up9SNBh7rVg9hWKLuGI-e1ipTBkIathRWpxVX1I0WBhh5wk8EQJoWi3HL9hKNtUf8CrR2',
+                            facilityType: null),
+                      ),
+                    ),
+                  );
+                });
               },
               markers: _markers,
             ),
+
+            //Fab Button
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: fab(context),
+              ),
+            ),
+
+            //Pin Window
+            _isPinWindowInfoVisible
+                ? Align(
+                    alignment: Alignment.bottomCenter,
+                    child: MapPinWindow(facilityModel: _currentPinWindow),
+                  )
+                : Container(),
+
+            //Search
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 18),
               child: TypeAheadField(
@@ -93,9 +167,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         EdgeInsets.symmetric(horizontal: 10, vertical: 0),
                     suffixIcon: Icon(Icons.search),
                     filled: true,
-                    fillColor: Colors.white,
+                    fillColor: AppColors.backgroundGrey,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+                      borderRadius: BorderRadius.circular(5.0),
                       borderSide: BorderSide(width: 0.0, color: Colors.white),
                     ),
                     hintText: AppLevelConstants.placeHint,
@@ -117,7 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomSheet: FacilityBottomSheet(),
+      // bottomSheet: FacilityBottomSheet(),
     );
   }
 
@@ -126,6 +200,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
     setState(() {
       _markers.addAll(_placeMarkers);
+    });
+  }
+
+  void _showPinWindow(FacilityModel data) {
+    setState(() {
+      _isPinWindowInfoVisible = true;
+      _currentPinWindow = data;
     });
   }
 }
