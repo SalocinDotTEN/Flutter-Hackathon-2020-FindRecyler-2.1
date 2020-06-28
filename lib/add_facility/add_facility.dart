@@ -20,108 +20,137 @@ class AddFacilityScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     //
 
-    return Scaffold(
-      appBar: AppBar(title: const Text('Add Facility')),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.fromLTRB(16.0, 0, 16, 20),
-        child: RaisedButton.icon(
-          color: Theme.of(context).accentColor,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-          textTheme: ButtonTextTheme.primary,
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-          onPressed: () {
-            _dbService.addFacility(FacilityModel(
-              facilityImageUrl: 'ss',
-            ));
-          },
-          icon: Icon(Icons.add_circle),
-          label: Text(
-            'Add This Facility'.toUpperCase(),
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              letterSpacing: 0.2,
-            ),
-          ),
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView(
-          children: <Widget>[
-            //PHOTO TITLE
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Text(
-                'Facility Photo',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey,
-                ),
-              ),
-            ),
-            const ImageCard(),
-            const SizedBox(height: 8),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              decoration: BoxDecoration(
-                color: AppColors.backgroundGrey,
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Name of Facility',
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-            const SizedBox(height: 8),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              decoration: BoxDecoration(
-                color: AppColors.backgroundGrey,
-                borderRadius: BorderRadius.circular(5),
-              ),
-              height: ScreenQueries.instance.customHeightPercent(context, 0.15),
-              child: TextField(
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
-                decoration: InputDecoration(
-                  hintText: 'Facility Address',
-                  alignLabelWithHint: false,
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-            const SizedBox(height: 8),
-
-            ChangeNotifierProvider<DropdownValue>(
-              create: (_) => DropdownValue(),
-              child: Consumer<DropdownValue>(
-                builder: (_, value, child) {
-                  final _model = value;
-
-                  return Container(
+    return ChangeNotifierProvider<CenterFormData>(
+      create: (_) => CenterFormData(),
+      child: Consumer<CenterFormData>(
+        builder: (_, value, child) {
+          //
+          return Scaffold(
+            appBar: AppBar(title: const Text('Add Facility')),
+            bottomNavigationBar: AddFacilityButton(model: value),
+            body: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ListView(
+                shrinkWrap: true,
+                children: <Widget>[
+                  //PHOTO TITLE
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Text(
+                      'Facility Photo',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ),
+                  const ImageCard(),
+                  const SizedBox(height: 8),
+                  Container(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
                       color: AppColors.backgroundGrey,
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: AppDropDown(
-                      hintText: AppLevelConstants.dpDwnDefault,
-                      items: AppLevelConstants.dpDwnOptions,
-                      onChange: (val) {
-                        _model.changeDropDownValue(val);
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Name of Facility',
+                        border: InputBorder.none,
+                      ),
+                      onChanged: (val) {
+                        value.name = val;
                       },
-                      value: _model.currentValue,
                     ),
-                  );
-                },
+                  ),
+                  const SizedBox(height: 8),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    decoration: BoxDecoration(
+                      color: AppColors.backgroundGrey,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    height: ScreenQueries.instance
+                        .customHeightPercent(context, 0.15),
+                    child: TextField(
+                      keyboardType: TextInputType.multiline,
+                      maxLines: null,
+                      decoration: InputDecoration(
+                        hintText: 'Facility Address',
+                        alignLabelWithHint: false,
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+
+                  ChangeNotifierProvider<DropdownValue>(
+                    create: (_) => DropdownValue(),
+                    child: Consumer<DropdownValue>(
+                      builder: (_, value, child) {
+                        final _model = value;
+
+                        return Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          decoration: BoxDecoration(
+                            color: AppColors.backgroundGrey,
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: AppDropDown(
+                            hintText: AppLevelConstants.dpDwnDefault,
+                            items: AppLevelConstants.dpDwnOptions,
+                            onChange: (val) {
+                              _model.changeDropDownValue(val);
+                            },
+                            value: _model.currentValue,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                ],
               ),
             ),
-            const SizedBox(height: 20),
-          ],
+          );
+        },
+      ),
+    );
+  }
+}
+
+class AddFacilityButton extends StatelessWidget {
+  const AddFacilityButton({Key key, this.model}) : super(key: key);
+
+  final CenterFormData model;
+
+  @override
+  Widget build(BuildContext context) {
+    //
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16.0, 0, 16, 20),
+      child: RaisedButton.icon(
+        color: Theme.of(context).accentColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+        textTheme: ButtonTextTheme.primary,
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+        onPressed: () {
+          final _centerData = model;
+
+          print('>>> 👹👹👹👹👹👹👹 CENTER DATA ${_centerData.toString()}');
+          // _dbService.addFacility(FacilityModel(
+          //   facilityImageUrl: 'ss',
+          // ));
+        },
+        icon: Icon(Icons.add_circle),
+        label: Text(
+          'Add This Facility'.toUpperCase(),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+            letterSpacing: 0.2,
+          ),
         ),
       ),
     );

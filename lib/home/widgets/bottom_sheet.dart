@@ -21,7 +21,7 @@ class FacilityBottomSheet extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             color: Colors.green,
-            onPressed: () => Navigator.pushNamed(
+            onPressed: () async => await Navigator.pushNamed(
               context,
               ApplevelRoutes.addFacilityScreen,
             ),
