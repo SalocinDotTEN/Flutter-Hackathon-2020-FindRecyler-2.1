@@ -69,8 +69,8 @@ class AddFacilityScreen extends StatelessWidget {
                     height: ScreenQueries.instance
                         .customHeightPercent(context, 0.15),
                     child: TextField(
-                      keyboardType: TextInputType.multiline,
-                      maxLines: null,
+                      keyboardType: TextInputType.text,
+                      maxLines: 2,
                       decoration: InputDecoration(
                         hintText: 'Facility Address',
                         alignLabelWithHint: false,
@@ -135,13 +135,13 @@ class AddFacilityButton extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         textTheme: ButtonTextTheme.primary,
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-        onPressed: () {
-          // _dbService.addFacility(FacilityModel(
-          //   facilityImageUrl: model.imgUrl,
-          //   facilityName: model.name,
-          //   facilityAddress: model.address,
-          //   facilityType: model.type,
-          // ));
+        onPressed: () async {
+          await _dbService.addFacility(FacilityModel(
+            facilityImageUrl: model.imgUrl,
+            facilityName: model.name,
+            facilityAddress: model.address,
+            facilityType: model.type,
+          ));
         },
         icon: Icon(Icons.add_circle),
         label: Text(
