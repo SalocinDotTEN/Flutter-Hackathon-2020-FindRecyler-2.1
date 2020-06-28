@@ -1,4 +1,5 @@
 import 'package:findrecycler/app_level/constants/constants.dart';
+
 import 'package:flutter/material.dart';
 
 class FacilityBottomSheet extends StatelessWidget {
@@ -21,7 +22,7 @@ class FacilityBottomSheet extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             color: Colors.green,
-            onPressed: () => Navigator.pushNamed(
+            onPressed: () async => await Navigator.pushNamed(
               context,
               ApplevelRoutes.addFacilityScreen,
             ),

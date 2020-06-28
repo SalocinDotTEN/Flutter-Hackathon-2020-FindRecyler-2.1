@@ -5,6 +5,19 @@ class AppLevelConstants {
   static const String appName = 'Find Recycler';
 
   static const String placeHint = 'e.g 808 French Rd';
+
+  static const String dpDwnDefault = 'Please select';
+  static const String dpDwnOptOne = 'Paper';
+  static const String dpDwnOptTwo = 'Clothes';
+  static const String dpDwnOptThree = 'Aluminium';
+
+  static const String goToHome = 'Go to home';
+
+  static const List<String> dpDwnOptions = [
+    dpDwnOptOne,
+    dpDwnOptTwo,
+    dpDwnOptThree,
+  ];
 }
 
 class ApplevelRoutes {
@@ -13,4 +26,5 @@ class ApplevelRoutes {
   static const String homeScreen = '/';
   static const String addFacilityScreen = '/addFacilityScreen';
   static const String discardItemScreen = '/discardItemScreen';
+  static const String facilityInformationScreen = '/facilityInformationScreen';
 }

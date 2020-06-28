@@ -91,33 +91,33 @@ class _DiscardItemScreen extends State<DiscardItemScreen> {
             ),
 
             //IMAGE CARD
-            GestureDetector(
-              onTap: () => ImagePickerService.picker,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Container(
-                  color: AppColors.backgroundGrey,
-                  alignment: Alignment.center,
-                  height:
-                      ScreenQueries.instance.customHeightPercent(context, 0.25),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(
-                        Icons.add_photo_alternate,
-                        size: ScreenQueries.instance
-                            .customHeightPercent(context, 0.15),
-                        color: Colors.grey,
-                      ),
-                      Text(
-                        'Tap to select or take a picture',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            // GestureDetector(
+            //   onTap: () => ImagePickerService.picker,
+            //   child: ClipRRect(
+            //     borderRadius: BorderRadius.circular(8),
+            //     child: Container(
+            //       color: AppColors.backgroundGrey,
+            //       alignment: Alignment.center,
+            //       height:
+            //           ScreenQueries.instance.customHeightPercent(context, 0.25),
+            //       child: Column(
+            //         mainAxisAlignment: MainAxisAlignment.center,
+            //         children: <Widget>[
+            //           Icon(
+            //             Icons.add_photo_alternate,
+            //             size: ScreenQueries.instance
+            //                 .customHeightPercent(context, 0.15),
+            //             color: Colors.grey,
+            //           ),
+            //           Text(
+            //             'Tap to select or take a picture',
+            //             style: TextStyle(color: Colors.grey),
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
