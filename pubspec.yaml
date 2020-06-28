@@ -36,6 +36,9 @@ dependencies:
 
   # GOOGLE MAPS
   google_maps_flutter: ^0.5.28+1
+  
+  # AUTO COMPLETE SEARCH
+  flutter_typeahead: ^1.8.3
 
 dev_dependencies:
   flutter_test:
