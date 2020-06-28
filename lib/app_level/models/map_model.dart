@@ -43,9 +43,29 @@ class FacilityCentersData {
         placeSnippet: 'Convert Waste to Compost',
       ),
       MapModelData(
-        position: LatLng(-7.289490, 112.751610),
-        placeTitle: 'UNESA Recycle',
+        position: LatLng(-7.280321, 112.713757),
+        placeTitle: 'Dukuh Plastic Recycle',
+        placeSnippet: 'Plastic Botol Recycle',
+      ),
+      MapModelData(
+        position: LatLng(-7.287303, 112.789974),
+        placeTitle: 'ITS Compost Recycle',
         placeSnippet: 'Convert Waste to Compost',
+      ),
+      MapModelData(
+        position: LatLng(-7.236338, 112.746228),
+        placeTitle: 'UD Logam Indah',
+        placeSnippet: 'Alumunium And Old Newspaper',
+      ),
+      MapModelData(
+        position: LatLng(-7.252165, 112.648465),
+        placeTitle: 'El Juan Creative',
+        placeSnippet: 'Kitchen Waste Recycle',
+      ),
+      MapModelData(
+        position: LatLng(-7.315115, 112.708980),
+        placeTitle: 'Etik Istianah Recycle',
+        placeSnippet: 'Kitchen Waste Recycle',
       ),
     ];
 
