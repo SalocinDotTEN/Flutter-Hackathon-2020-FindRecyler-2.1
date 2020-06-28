@@ -1,4 +1,5 @@
 import 'package:findrecycler/rewards/widgets/coupon.dart';
+import 'package:findrecycler/rewards/widgets/points.dart';
 import 'package:flutter/material.dart';
 
 class Rewards extends StatelessWidget {
@@ -16,9 +17,10 @@ class Rewards extends StatelessWidget {
           children: <Widget>[
             ListView(
               shrinkWrap: true,
-              padding: EdgeInsets.only(bottom: 40, top: 10),
+              padding: EdgeInsets.only(bottom: 40),
               scrollDirection: Axis.vertical,
               children: <Widget>[
+                Points(),
                 CouponSwiper(),
               ],
             ),
