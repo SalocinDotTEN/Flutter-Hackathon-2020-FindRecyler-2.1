@@ -6,6 +6,7 @@ import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:findrecycler/app_level/data/facility_centres.dart';
 import 'package:findrecycler/app_level/models/map_model.dart';
 import 'package:findrecycler/app_level/services/google_maps.dart';
+import 'package:findrecycler/app_level/widgets/pop_up_menu.dart';
 import 'package:findrecycler/home/widgets/bottom_sheet.dart';
 
 import 'package:flutter/material.dart';
@@ -80,7 +81,12 @@ class _HomeScreenState extends State<HomeScreen> {
     //
 
     return Scaffold(
-      appBar: AppBar(title: Text(AppLevelConstants.appName)),
+      appBar: AppBar(
+        title: Text(AppLevelConstants.appName),
+        actions: <Widget>[
+          PopUpMenu(),
+        ],
+      ),
       body: SafeArea(
         child: Stack(
           children: <Widget>[
