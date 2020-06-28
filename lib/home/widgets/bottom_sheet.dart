@@ -3,7 +3,8 @@ import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class FacilityBottomSheet extends StatelessWidget {
-  const FacilityBottomSheet({Key key}) : super(key: key);
+  final parent;
+  const FacilityBottomSheet({Key key, this.parent}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,16 @@ class FacilityBottomSheet extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             color: Colors.green,
-            onPressed: () {},
+            disabledColor: Colors.grey,
+            onPressed: parent.selectedMarker != null
+                ? () {
+                    Navigator.pushNamed(
+                      context,
+                      ApplevelRoutes.discardItemScreen,
+                      arguments: parent.selectedMarker
+                    );
+                  }
+                : null,
             child: Text(
               'Discard Item',
               style: TextStyle(color: Colors.white),

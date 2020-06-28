@@ -25,5 +25,6 @@ class ApplevelRoutes {
 
   static const String homeScreen = '/';
   static const String addFacilityScreen = '/addFacilityScreen';
+  static const String discardItemScreen = '/discardItemScreen';
   static const String facilityInformationScreen = '/facilityInformationScreen';
 }

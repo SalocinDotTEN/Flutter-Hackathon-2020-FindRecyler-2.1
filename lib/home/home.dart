@@ -35,6 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final Completer<GoogleMapController> _controller = Completer();
   BitmapDescriptor _placeIcon;
 
+  MapModelData selectedMarker = null;
+
   @override
   void initState() {
     super.initState();
@@ -66,6 +68,12 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void onTapMarker(MapModelData select) {
+    setState((){
+      selectedMarker = select;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     //
@@ -81,6 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onMapCreated: (controller) {
                 _controller.complete(controller);
               },
+              onTap: (LatLng data){onTapMarker(null);},
               markers: _markers,
             ),
             Padding(
@@ -117,12 +126,12 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomSheet: FacilityBottomSheet(),
+      bottomSheet: FacilityBottomSheet(parent: this,),
     );
   }
 
   void _createData() {
-    var _placeMarkers = FacilityMarkers.placeMarkers(_placeIcon);
+    var _placeMarkers = FacilityMarkers.placeMarkers(_placeIcon, this);
 
     setState(() {
       _markers.addAll(_placeMarkers);

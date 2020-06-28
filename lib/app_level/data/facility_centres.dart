@@ -9,7 +9,7 @@ class FacilityCentresData {
   static List<MapModelData> filterData(String query) {
     var data = FacilityCentresData.centerData
         .where((i) =>
-            (i.placeTitle.contains(query) || i.placeSnippet.contains(query)))
+            (i.placeTitle.toLowerCase().contains(query.toLowerCase()) || i.placeSnippet.toLowerCase().contains(query.toLowerCase())))
         .toList();
     return data.take(5).toList();
   }
@@ -18,7 +18,7 @@ class FacilityCentresData {
 class FacilityMarkers {
   FacilityMarkers._();
 
-  static List<Marker> placeMarkers(BitmapDescriptor placeIcon) {
+  static List<Marker> placeMarkers(BitmapDescriptor placeIcon, parent) {
     var _markers = <Marker>[];
     var _centresPlaces = FacilityCentresData.centerData.length;
 
@@ -32,6 +32,7 @@ class FacilityMarkers {
           ),
           markerId: MarkerId(i.toString()),
           position: FacilityCentresData.centerData[i].position,
+          onTap: (){parent.onTapMarker(FacilityCentresData.centerData[i]);}
         ),
       );
     }

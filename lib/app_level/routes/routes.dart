@@ -1,5 +1,6 @@
 import 'package:findrecycler/add_facility/add_facility.dart';
 import 'package:findrecycler/app_level/constants/constants.dart';
+import 'package:findrecycler/discard_item/discard_item.dart';
 import 'package:findrecycler/facility_information/facility_information.dart';
 import 'package:findrecycler/home/home.dart';
 
@@ -21,6 +22,11 @@ class Router {
         return MaterialPageRoute(
           builder: (_) => AddFacilityScreen(),
           settings: settings,
+        );
+
+      case ApplevelRoutes.discardItemScreen:
+        return MaterialPageRoute(
+          builder: (_) => DiscardItemScreen(data: settings.arguments),
         );
 
       case ApplevelRoutes.facilityInformationScreen:
