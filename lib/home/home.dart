@@ -30,8 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
   GoogleMapController mapController;
   TextEditingController searchController = TextEditingController();
 
-  static final CameraPosition _kSingapore = CameraPosition(
-    target: LatLng(1.3521, 103.8198),
+  static final CameraPosition _kIndia = CameraPosition(
+    target: LatLng(19.0760, 72.8777),
     zoom: 11.0,
   );
   final GoogleMapsServices _mapsService = GoogleMapsServices.instance;
@@ -107,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Stack(
           children: <Widget>[
             GoogleMap(
-              initialCameraPosition: _kSingapore,
+              initialCameraPosition: _kIndia,
               zoomControlsEnabled: false,
               buildingsEnabled: false,
               onTap: (v) {
