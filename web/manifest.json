@@ -1,15 +1,14 @@
 {
-    "name": "findrecycler",
+    "name": "Find Recycler",
     "short_name": "findrecycler",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Nearest recycle centres near you",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
-    "icons": [
-        {
+    "icons": [{
             "src": "icons/Icon-192.png",
             "sizes": "192x192",
             "type": "image/png"
