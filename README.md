@@ -22,4 +22,27 @@ URL : https://find-recycler.firebaseapp.com/#/
   </a>  
 </p>
 
+### Inspiration
+
+> It all begins with a single step. - Team Signature
+
+
+* While cleaning up my room, I realised there were a lot of recyclable materials. Questions I asked to myself, why should I recycle if I can simply throw it away ?
+* My procrastination was on its way, when suddenly it struck me, why should I not recycle if **I get a reward in doing so.**
+
+**What FindRecycler does?**
+ * Providing a proximity search for recycling facilities that are suitable for the appropriate discarded item (say paper, clothes, bags etc).
+ * The app also provides a way to crowdsource recycling facilities.
+ * Earn rewards based on the recycling activies (discarding items or adding a facility centre).
+
+### ‍Created by...
+
+**Team Signature**
+
+* [Ahmad](https://github.com/lustea00)
+* [Aseem](https://github.com/aseemwangoo)
+* [Nicolas](https://github.com/SalocinDotTEN)
+* [Sanjay](https://github.com/imsanjaysoni)
+
+> Divided by countries, united by a mission. - Team Signature
 
