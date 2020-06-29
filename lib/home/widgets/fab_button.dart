@@ -2,7 +2,7 @@ import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
-Widget fab(BuildContext context) {
+Widget fab(BuildContext context, dynamic parent) {
   return SpeedDial(
     // both default to 16
     marginRight: 18,
@@ -35,7 +35,12 @@ Widget fab(BuildContext context) {
         backgroundColor: Colors.redAccent,
         label: 'Discard Item',
         labelStyle: TextStyle(fontSize: 18.0),
-        onTap: () {},
+        onTap: parent.selectedMarker != null
+            ? () {
+                Navigator.pushNamed(context, ApplevelRoutes.discardItemScreen,
+                    arguments: parent.selectedMarker);
+              }
+            : null,
       ),
     ],
   );

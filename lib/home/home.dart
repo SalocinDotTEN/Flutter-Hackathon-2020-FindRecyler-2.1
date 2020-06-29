@@ -8,7 +8,6 @@ import 'package:findrecycler/app_level/models/freezed/facility.dart';
 import 'package:findrecycler/app_level/models/map_model.dart';
 import 'package:findrecycler/app_level/services/google_maps.dart';
 import 'package:findrecycler/app_level/widgets/pop_up_menu.dart';
-import 'package:findrecycler/home/widgets/bottom_sheet.dart';
 import 'package:findrecycler/app_level/styles/colors.dart';
 import 'package:findrecycler/home/widgets/fab_button.dart';
 import 'package:findrecycler/home/widgets/map_pin_window.dart';
@@ -163,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
               alignment: Alignment.bottomRight,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: fab(context),
+                child: fab(context, this),
               ),
             ),
 
