@@ -28,12 +28,13 @@ class AddFacilityButton extends StatelessWidget {
         textTheme: ButtonTextTheme.primary,
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
         onPressed: () async {
-          await _dbService.addFacility(FacilityModel(
-            facilityImageUrl: model.imgUrl,
-            facilityName: model.name,
-            facilityAddress: model.address,
-            facilityType: model.type,
-          ));
+          // await _dbService.addFacility(FacilityModel(
+          //   facilityImageUrl: model.imgUrl,
+          //   facilityName: model.name,
+          //   facilityAddress: model.address,
+          //   facilityType: model.type,
+          // ));
+          await Future.delayed(Duration(milliseconds: 1600));
 
           _showDetails(context);
         },
