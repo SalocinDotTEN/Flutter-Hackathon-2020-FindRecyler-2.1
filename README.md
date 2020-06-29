@@ -10,6 +10,9 @@ Presenting **FindRecycler** (not just any other recycling app, 😏😏)
 
 > The journey of a thousand miles begins with one step. - Lao Tzu
 
+## Download app 📱
+* [FindRecycler](https://github.com/SalocinDotTEN/Flutter-Hackathon-2020-FindRecyler-2.1/blob/develop/apk/FindRecycler.apk)
+
 ## Web version 👨‍💻 👩‍💻!!
 
 URL : https://find-recycler.firebaseapp.com/#/
