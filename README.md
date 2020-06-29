@@ -18,9 +18,15 @@ URL : https://find-recycler.firebaseapp.com/#/
 
 <p>
   <a href="https://find-recycler.firebaseapp.com/#/" target="_blank">
-  <img src="https://github.com/SalocinDotTEN/Flutter-Hackathon-2020-FindRecyler-2.1/blob/master/web/icons/Icon-512.png">
+  <img src="https://github.com/SalocinDotTEN/Flutter-Hackathon-2020-FindRecyler-2.1/blob/master/web/icons/Icon-192.png">
   </a>  
 </p>
+
+### Screenshots
+
+Home             |  Else
+:-------------------------:|:-------------------------:
+![](https://github.com/SalocinDotTEN/Flutter-Hackathon-2020-FindRecyler-2.1/blob/master/screenshots/home.png)  |  ![](https://github.com/SalocinDotTEN/Flutter-Hackathon-2020-FindRecyler-2.1/blob/master/screenshots/home.png)
 
 ### Inspiration 🦹‍♂️ 🦹‍♀️
 
