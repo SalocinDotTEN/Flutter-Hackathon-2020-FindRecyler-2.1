@@ -24,9 +24,32 @@ URL : https://find-recycler.firebaseapp.com/#/
 
 ### Screenshots
 
-Home             |  Else
-:-------------------------:|:-------------------------:
-![](https://github.com/SalocinDotTEN/Flutter-Hackathon-2020-FindRecyler-2.1/blob/master/screenshots/home.png)  |  ![](https://github.com/SalocinDotTEN/Flutter-Hackathon-2020-FindRecyler-2.1/blob/master/screenshots/home.png)
+<table>
+  <tr>
+    <td>Home Screen</td>
+    <td>Facility Info Screen</td>
+    <td>Rewards Screen</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/SalocinDotTEN/Flutter-Hackathon-2020-FindRecyler-2.1/blob/develop/screenshots/home.png" width=270 height=480></td>
+    <td><img src="https://github.com/SalocinDotTEN/Flutter-Hackathon-2020-FindRecyler-2.1/blob/develop/screenshots/facility_info.png" width=270 height=480></td>
+    <td><img src="https://github.com/SalocinDotTEN/Flutter-Hackathon-2020-FindRecyler-2.1/blob/develop/screenshots/rewards.png" width=270 height=480></td>
+  </tr>
+ </table>
+
+ <table>
+  <tr>
+    <td>Discard Item Screen</td>
+    <td>Points Awarded</td>
+    <td>Add Facility Centre Screen</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/SalocinDotTEN/Flutter-Hackathon-2020-FindRecyler-2.1/blob/develop/screenshots/discarding.png" width=270 height=480></td>
+    <td><img src="https://github.com/SalocinDotTEN/Flutter-Hackathon-2020-FindRecyler-2.1/blob/develop/screenshots/discarded.png" width=270 height=480></td>
+    <td><img src="https://github.com/SalocinDotTEN/Flutter-Hackathon-2020-FindRecyler-2.1/blob/develop/screenshots/adding_centre.png" width=270 height=480></td>
+  </tr>
+ </table>
+
 
 ### Inspiration 🦹‍♂️ 🦹‍♀️
 
