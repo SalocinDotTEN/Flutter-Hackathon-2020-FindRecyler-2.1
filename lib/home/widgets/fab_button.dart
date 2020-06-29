@@ -45,7 +45,7 @@ Widget fab(BuildContext context, dynamic parent) {
                 Fluttertoast.showToast(
                   msg: 'Please select any Facility Center on map first.',
                   toastLength: Toast.LENGTH_SHORT,
-                  timeInSecForIosWeb: 4,
+                  timeInSecForIosWeb: 3,
                 );
               },
       ),
