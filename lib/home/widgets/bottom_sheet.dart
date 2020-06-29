@@ -41,10 +41,8 @@ class FacilityBottomSheet extends StatelessWidget {
             onPressed: parent.selectedMarker != null
                 ? () {
                     Navigator.pushNamed(
-                      context,
-                      ApplevelRoutes.discardItemScreen,
-                      arguments: parent.selectedMarker
-                    );
+                        context, ApplevelRoutes.discardItemScreen,
+                        arguments: parent.selectedMarker);
                   }
                 : null,
             child: Text(
