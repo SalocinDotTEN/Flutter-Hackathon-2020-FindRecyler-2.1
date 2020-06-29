@@ -71,7 +71,10 @@ class FacilityInformationScreen extends StatelessWidget {
             multipleLine: true,
           ),
           InfoBox(
-              title: 'Facility Type', value: facilityModel.facilityType ?? ''),
+            title: 'Facility Type',
+            value: facilityModel.facilityType ?? '',
+            isDropDown: true,
+          ),
         ],
       ),
     );
