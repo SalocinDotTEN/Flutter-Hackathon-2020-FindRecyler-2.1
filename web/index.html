@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="Find Recycler Centres">
+
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="findrecycler">
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+
+    <title>Find Recycler</title>
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+
+    <script>
+        let _hostName = window.location.hostname;
+        console.log('RUNNING ON', _hostName);
+
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDBUL_89kY3dY2eIZqW8fqXGs-E97tx3nU",
+            authDomain: "find-recycler.firebaseapp.com",
+            databaseURL: "https://find-recycler.firebaseio.com",
+            projectId: "find-recycler",
+            storageBucket: "find-recycler.appspot.com",
+            messagingSenderId: "581538545232",
+            appId: "1:581538545232:web:02964d3db31840180b5b55",
+            measurementId: "G-4C6P1Y7Z1G"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <script defer src="main.dart.js?version=1" type="application/javascript"></script>
+</body>
+
+</html>
