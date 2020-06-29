@@ -47,7 +47,9 @@ dependencies:
   # flutter pub run build_runner build
   freezed_annotation: ^0.7.1
 
+  #others
   cached_network_image: ^2.2.0+1
+  flutter_speed_dial: ^1.2.5
 
   # IN CASE OF ERRORS RUN :
   # flutter pub run build_runner build --delete-conflicting-outputs
@@ -72,6 +74,7 @@ flutter:
     - assets/fonts/
     - assets/images/2.0x/
     - assets/images/3.0x/
+    - assets/map_style.txt
 
   fonts:
     - family: Muli

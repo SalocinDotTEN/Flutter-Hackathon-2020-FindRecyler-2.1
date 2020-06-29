@@ -11,6 +11,7 @@ abstract class FacilityModel with _$FacilityModel {
     @JsonKey(name: 'facility_name') String facilityName,
     @JsonKey(name: 'facility_address') String facilityAddress,
     @JsonKey(name: 'facility_type') String facilityType,
+    // @JsonKey(name: 'facility_location') LatLng facilityLocation,
   }) = _FacilityModel;
 
   factory FacilityModel.fromJson(Map<String, dynamic> json) =>

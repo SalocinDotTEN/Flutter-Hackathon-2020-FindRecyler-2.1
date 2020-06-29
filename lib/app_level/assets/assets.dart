@@ -3,7 +3,6 @@ import 'package:flutter/material.dart' show AssetImage;
 class AppAssets {
   AppAssets._();
 
-  static const AssetImage place = AssetImage('assets/images/place.png');
   static const pizzahut = AssetImage('assets/images/pizza_hut.jpg');
   static const starbucks2 = AssetImage('assets/images/coupon_2.png');
   static const starbucks3 = AssetImage('assets/images/coupon_3.png');
@@ -17,4 +16,5 @@ class AppAssets {
   static const elex = AssetImage('assets/images/elex.png');
   static const mobile = AssetImage('assets/images/mobile.png');
   static const water = AssetImage('assets/images/water.png');
+  static const AssetImage place = AssetImage('assets/images/pin.png');
 }

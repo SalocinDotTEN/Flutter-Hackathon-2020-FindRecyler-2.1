@@ -1,6 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:findrecycler/app_level/models/freezed/facility.dart';
 import 'package:findrecycler/app_level/styles/colors.dart';
+import 'package:findrecycler/app_level/widgets/custom_btn.dart';
+import 'package:findrecycler/app_level/widgets/dialog.dart';
+import 'package:findrecycler/app_level/widgets/flare_tick.dart';
 import 'package:findrecycler/facility_information/widgets/info_box.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +29,10 @@ class FacilityInformationScreen extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           textTheme: ButtonTextTheme.primary,
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-          onPressed: () {},
+          onPressed: () async {
+            await Future.delayed(Duration(milliseconds: 1600));
+            _showDetails(context);
+          },
           icon: Icon(Icons.delete),
           label: Text(
             'Confirm discard item'.toUpperCase(),
@@ -61,13 +68,42 @@ class FacilityInformationScreen extends StatelessWidget {
           SizedBox(
             height: 8,
           ),
-          InfoBox(title: 'Facility Name', value: facilityModel.facilityName),
+          InfoBox(
+            title: 'Facility Name',
+            value: facilityModel.facilityName ?? '',
+          ),
           InfoBox(
             title: 'Facility Address',
-            value: facilityModel.facilityAddress,
+            value: facilityModel.facilityAddress ?? '',
             multipleLine: true,
           ),
-          InfoBox(title: 'Facility Type', value: facilityModel.facilityType),
+          InfoBox(
+            title: 'Facility Type',
+            value: facilityModel.facilityType ?? '',
+            isDropDown: true,
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showDetails(BuildContext c) async {
+    final _width = ScreenQueries.instance.width(c);
+
+    await showDialog<bool>(
+      context: c,
+      builder: (_) => CustomDialog(
+        width: _width,
+        children: <Widget>[
+          const FlareTick(),
+          CustomizedButton(
+            action: () async {
+              await Navigator.of(c).popUntil(
+                ModalRoute.withName(ApplevelRoutes.homeScreen),
+              );
+            },
+            text: AppLevelConstants.goToHome,
+          ),
         ],
       ),
     );
