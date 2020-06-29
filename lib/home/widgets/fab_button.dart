@@ -1,6 +1,7 @@
 import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 Widget fab(BuildContext context, dynamic parent) {
   return SpeedDial(
@@ -13,7 +14,7 @@ Widget fab(BuildContext context, dynamic parent) {
     closeManually: false,
     curve: Curves.bounceIn,
     overlayOpacity: 0.0,
-    tooltip: 'Speed Dial',
+    tooltip: 'Menu',
     heroTag: 'speed-dial-hero-tag',
     backgroundColor: Colors.white,
     foregroundColor: Colors.black,
@@ -40,7 +41,13 @@ Widget fab(BuildContext context, dynamic parent) {
                 Navigator.pushNamed(context, ApplevelRoutes.discardItemScreen,
                     arguments: parent.selectedMarker);
               }
-            : null,
+            : () {
+                Fluttertoast.showToast(
+                  msg: 'Please select any Facility Center on map first.',
+                  toastLength: Toast.LENGTH_SHORT,
+                  timeInSecForIosWeb: 3,
+                );
+              },
       ),
     ],
   );
