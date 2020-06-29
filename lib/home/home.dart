@@ -211,7 +211,7 @@ class _HomeScreenState extends State<HomeScreen> {
               facilityName: 'Hitech Recycling (INDIA) Pvt. Ltd',
               facilityAddress: 'Hitech Recycling (INDIA) Pvt. Ltd Pune 441209',
               facilityImageUrl:
-                  'https://lh3.googleusercontent.com/proxy/ntw6Fcwm6kShPY1w1r3CBO6uUUizUKaPXVf55fcZvvwGWHvxcqUPNCuZvB50GP3snuCPFThQ1wTh5582Tyif_Q69oFUff61up9SNBh7rVg9hWKLuGI-e1ipTBkIathRWpxVX1I0WBhh5wk8EQJoWi3HL9hKNtUf8CrR2',
+                  'https://www.thebetterindia.com/wp-content/uploads/2016/09/waste_f-1.jpg',
               facilityType: null),
         ),
       ),
