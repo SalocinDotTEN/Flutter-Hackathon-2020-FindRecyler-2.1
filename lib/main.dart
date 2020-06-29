@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: AppLevelConstants.appName,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: AppLevelConstants.fontMuli,
