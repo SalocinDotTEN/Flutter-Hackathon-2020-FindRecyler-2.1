@@ -54,9 +54,12 @@ class _HomeScreenState extends State<HomeScreen> {
       _mapStyle = string;
     });
 
-    _mapsService
-        .customMarker(AppAssets.place.assetName)
-        .then((icon) => _placeIcon = icon);
+    _init();
+  }
+
+  void _init() async {
+    final _icon = await _mapsService.customMarker(AppAssets.place.assetName);
+    _placeIcon = _icon;
 
     _createData();
   }
@@ -116,40 +119,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 _controller.complete(controller);
                 mapController = controller;
                 mapController.setMapStyle(_mapStyle);
-
-                setState(() {
-                  _markers.add(
-                    Marker(
-                      markerId: MarkerId('1'),
-                      position: LatLng(1.3521, 103.4598),
-                      icon: _placeIcon,
-                      onTap: () => _showPinWindow(
-                        FacilityModel(
-                            facilityName: 'GREEN IT RECYCLING CENTER PVT. LTD.',
-                            facilityAddress: '5 Ganeshprasad IInd Floor, 890',
-                            facilityImageUrl:
-                                'https://www.thebetterindia.com/wp-content/uploads/2016/09/waste_f-1.jpg',
-                            facilityType: 'Paper'),
-                      ),
-                    ),
-                  );
-                  _markers.add(
-                    Marker(
-                      markerId: MarkerId('2'),
-                      position: LatLng(2.3611, 103.8193),
-                      icon: _placeIcon,
-                      onTap: () => _showPinWindow(
-                        FacilityModel(
-                            facilityName: 'Hitech Recycling (INDIA) Pvt. Ltd',
-                            facilityAddress:
-                                'Hitech Recycling (INDIA) Pvt. Ltd Pune 441209',
-                            facilityImageUrl:
-                                'https://lh3.googleusercontent.com/proxy/ntw6Fcwm6kShPY1w1r3CBO6uUUizUKaPXVf55fcZvvwGWHvxcqUPNCuZvB50GP3snuCPFThQ1wTh5582Tyif_Q69oFUff61up9SNBh7rVg9hWKLuGI-e1ipTBkIathRWpxVX1I0WBhh5wk8EQJoWi3HL9hKNtUf8CrR2',
-                            facilityType: null),
-                      ),
-                    ),
-                  );
-                });
               },
               // onTap: (LatLng data) {
               //   onTapMarker(null);
@@ -219,8 +188,38 @@ class _HomeScreenState extends State<HomeScreen> {
   void _createData() {
     var _placeMarkers = FacilityMarkers.placeMarkers(_placeIcon, this);
 
+    var _specialMarkers = <Marker>[
+      Marker(
+        markerId: MarkerId('1'),
+        position: LatLng(1.3521, 103.4598),
+        icon: _placeIcon,
+        onTap: () => _showPinWindow(
+          FacilityModel(
+              facilityName: 'GREEN IT RECYCLING CENTER PVT. LTD.',
+              facilityAddress: '5 Ganeshprasad IInd Floor, 890',
+              facilityImageUrl:
+                  'https://www.thebetterindia.com/wp-content/uploads/2016/09/waste_f-1.jpg',
+              facilityType: 'Paper'),
+        ),
+      ),
+      Marker(
+        markerId: MarkerId('2'),
+        position: LatLng(2.3611, 103.8193),
+        icon: _placeIcon,
+        onTap: () => _showPinWindow(
+          FacilityModel(
+              facilityName: 'Hitech Recycling (INDIA) Pvt. Ltd',
+              facilityAddress: 'Hitech Recycling (INDIA) Pvt. Ltd Pune 441209',
+              facilityImageUrl:
+                  'https://lh3.googleusercontent.com/proxy/ntw6Fcwm6kShPY1w1r3CBO6uUUizUKaPXVf55fcZvvwGWHvxcqUPNCuZvB50GP3snuCPFThQ1wTh5582Tyif_Q69oFUff61up9SNBh7rVg9hWKLuGI-e1ipTBkIathRWpxVX1I0WBhh5wk8EQJoWi3HL9hKNtUf8CrR2',
+              facilityType: null),
+        ),
+      ),
+    ];
+
     setState(() {
       _markers.addAll(_placeMarkers);
+      _markers.addAll(_specialMarkers);
     });
   }
 
