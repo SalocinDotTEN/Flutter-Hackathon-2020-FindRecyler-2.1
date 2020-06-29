@@ -10,7 +10,7 @@ Presenting **FindRecycler** (not just any other recycling app, 😏😏)
 
 > The journey of a thousand miles begins with one step. - Lao Tzu
 
-## Website 👨‍💻 👩‍💻!!
+## Web version 👨‍💻 👩‍💻!!
 
 URL : https://find-recycler.firebaseapp.com/#/
 
@@ -28,7 +28,8 @@ URL : https://find-recycler.firebaseapp.com/#/
 
 
 * While cleaning up my room, I realised there were a lot of recyclable materials. Questions I asked to myself, why should I recycle if I can simply throw it away ?
-* My procrastination was on its way, when suddenly it struck me, why should I not recycle if **I get a reward in doing so.**
+* Also tried looking for a centralized recycling facility locator but could not find a suitable one. Therefore this idea was born.
+* My procrastination was on its way, when suddenly it struck me, why should I not recycle if **I get a reward in doing so.** and so points are awarded if new recycling facilities are added or items are discarded.
 
 **What FindRecycler does?**
  * Providing a proximity search for recycling facilities that are suitable for the appropriate discarded item (say paper, clothes, bags etc).
@@ -41,7 +42,7 @@ URL : https://find-recycler.firebaseapp.com/#/
 
 * [Ahmad](https://github.com/lustea00)
 * [Aseem](https://github.com/aseemwangoo)
-* [Nicolas](https://github.com/SalocinDotTEN)
+* [Nicolas Y.](https://github.com/SalocinDotTEN)
 * [Sanjay](https://github.com/imsanjaysoni)
 
 > Divided by countries, united by a mission. - Team Signature
