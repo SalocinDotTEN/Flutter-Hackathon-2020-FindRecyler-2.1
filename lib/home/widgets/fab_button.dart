@@ -13,7 +13,7 @@ Widget fab(BuildContext context, dynamic parent) {
     closeManually: false,
     curve: Curves.bounceIn,
     overlayOpacity: 0.0,
-    tooltip: 'Speed Dial',
+    tooltip: 'Menu',
     heroTag: 'speed-dial-hero-tag',
     backgroundColor: Colors.white,
     foregroundColor: Colors.black,
