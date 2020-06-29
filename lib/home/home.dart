@@ -191,12 +191,12 @@ class _HomeScreenState extends State<HomeScreen> {
     var _specialMarkers = <Marker>[
       Marker(
         markerId: MarkerId('1'),
-        position: LatLng(1.3521, 103.4598),
+        position: LatLng(19.0760, 72.8777),
         icon: _placeIcon,
         onTap: () => _showPinWindow(
           FacilityModel(
               facilityName: 'GREEN IT RECYCLING CENTER PVT. LTD.',
-              facilityAddress: '5 Ganeshprasad IInd Floor, 890',
+              facilityAddress: '5 Ganeshprasad IInd Floor, 890 Mumbai',
               facilityImageUrl:
                   'https://www.thebetterindia.com/wp-content/uploads/2016/09/waste_f-1.jpg',
               facilityType: 'Paper'),
@@ -204,14 +204,56 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       Marker(
         markerId: MarkerId('2'),
-        position: LatLng(2.3611, 103.8193),
+        position: LatLng(18.5204, 73.8567),
         icon: _placeIcon,
         onTap: () => _showPinWindow(
           FacilityModel(
               facilityName: 'Hitech Recycling (INDIA) Pvt. Ltd',
               facilityAddress: 'Hitech Recycling (INDIA) Pvt. Ltd Pune 441209',
               facilityImageUrl:
-                  'https://www.thebetterindia.com/wp-content/uploads/2016/09/waste_f-1.jpg',
+                  'https://images.theconversation.com/files/231151/original/file-20180808-191038-zep5v5.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop',
+              facilityType: null),
+        ),
+      ),
+      Marker(
+        markerId: MarkerId('3'),
+        position: LatLng(24.5460727, 74.3037526),
+        icon: _placeIcon,
+        onTap: () => _showPinWindow(
+          FacilityModel(
+              facilityName: 'JAAGRUTI™ Waste Paper Recycling Services',
+              facilityAddress:
+                  'F-3, Shopping Centre, Mayapuri Chowk Flyover, Mansarover Garden, New Delhi, Delhi 110015',
+              facilityImageUrl:
+                  'https://images.theconversation.com/files/231151/original/file-20180808-191038-zep5v5.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop',
+              facilityType: null),
+        ),
+      ),
+      Marker(
+        markerId: MarkerId('4'),
+        position: LatLng(24.555097, 74.8361574),
+        icon: _placeIcon,
+        onTap: () => _showPinWindow(
+          FacilityModel(
+              facilityName: 'J3R Recycler Pvt. Ltd.',
+              facilityAddress:
+                  '502, 5th Floor, DDA Complex, Distt. Center, Laxmi Nagar, New Delhi, 110092',
+              facilityImageUrl:
+                  'https://images.theconversation.com/files/231151/original/file-20180808-191038-zep5v5.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop',
+              facilityType: null),
+        ),
+      ),
+      Marker(
+        markerId: MarkerId('5'),
+        position: LatLng(16.754792, 74.463443),
+        icon: _placeIcon,
+        onTap: () => _showPinWindow(
+          FacilityModel(
+              facilityName: 'E-Waste Collection Centre in Bangalore',
+              facilityAddress:
+                  '23, 23 rd A, Marenahalli Main Rd, R.K Colony, Marenahalli, 2nd Phase, J. P. Nagar, Bengaluru, Karnataka 540040',
+              facilityImageUrl:
+                  'https://i2.wp.com/www.ecoideaz.com/wp-content/uploads/2015/12/Attero-Recycling-e-waste.jpg?resize=505%2C264',
               facilityType: null),
         ),
       ),
