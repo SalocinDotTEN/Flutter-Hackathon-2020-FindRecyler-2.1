@@ -1,7 +1,7 @@
 import 'package:findrecycler/app_level/constants/constants.dart';
 import 'package:findrecycler/app_level/routes/routes.dart';
-import 'package:findrecycler/home/home.dart';
 import 'package:findrecycler/locator.dart';
+import 'package:findrecycler/splash/splash.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'package:flutter/material.dart';
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      home: SplashScreen(),
       onGenerateRoute: Router.generateRoute,
     );
   }
