@@ -72,10 +72,10 @@ URL : https://find-recycler.firebaseapp.com/#/
 
 **Team Signature**
 
-* [Ahmad](https://github.com/lustea00)
-* [Aseem](https://github.com/aseemwangoo)
-* [Nicolas Y.](https://github.com/SalocinDotTEN)
-* [Sanjay](https://github.com/imsanjaysoni)
+* [Ahmad](https://github.com/lustea00) 🇮🇩
+* [Aseem](https://github.com/aseemwangoo) 🇸🇬
+* [Nicolas Y.](https://github.com/SalocinDotTEN) 🇲🇾
+* [Sanjay](https://github.com/imsanjaysoni) 🇮🇳
 
 > Divided by countries, united by a mission. - Team Signature :+1:
 
