@@ -10,7 +10,6 @@ import GoogleMaps
   ) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
     
-    GMSServices.provideAPIKey("AIzaSyAhrWnOcXwoFxiNq804_pflMfU-yyGzK64")
     
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
